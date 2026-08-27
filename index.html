@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Αικατερίνη Λαζαρίδου — Ψυχολόγος, Συστημική Ψυχοθεραπεύτρια | Θεσσαλονίκη</title>
+<meta name="description" content="Αικατερίνη Λαζαρίδου, ψυχολόγος και συστημική ψυχοθεραπεύτρια στη Θεσσαλονίκη. Ατομική ψυχοθεραπεία ενηλίκων, παιδιά και έφηβοι, θεραπεία ζεύγους, συμβουλευτική γονέων.">
+<meta name="author" content="Αικατερίνη Λαζαρίδου">
+<link rel="icon" href="./favicon.ico" sizes="32x32">
+<link rel="icon" href="./favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="theme-color" content="#F3E7DB">
+
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="el_GR">
+<meta property="og:title" content="Αικατερίνη Λαζαρίδου — Ψυχολόγος, Συστημική Ψυχοθεραπεύτρια">
+<meta property="og:description" content="Ψυχολόγος και συστημική ψυχοθεραπεύτρια στη Θεσσαλονίκη. Ενήλικες, παιδιά και έφηβοι, ζευγάρια, γονείς.">
+<meta property="og:image" content="./logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Psychologist",
+  "name": "Αικατερίνη Λαζαρίδου",
+  "description": "Ψυχολόγος και συστημική ψυχοθεραπεύτρια στη Θεσσαλονίκη.",
+  "areaServed": "Θεσσαλονίκη",
+  "email": "mailto:laikateri@gmail.com",
+  "telephone": "+306978721941",
+  "image": "./katerina.jpg",
+  "sameAs": ["https://www.instagram.com/therapy.voices/"],
+  "knowsLanguage": ["el", "en"]
+}
+</script>
+
+<style>
+/* ============================================================
+   Παλέτα — παστέλ, από την εικόνα του therapy.voices
+   ============================================================ */
+:root {
+  --cream:     #F6F3ED;
+  --cream-2:   #EFE9DF;
+  --surface:   #FFFDFA;
+  --ink:       #3B3134;
+  --ink-2:     #63545A;
+  --ink-3:     #9A8B90;
+  --plum:      #7A5560;
+  --plum-deep: #5D3F49;
+  --plum-soft: rgba(122, 85, 96, 0.09);
+  --sage:      #5C7A62;
+  --sage-soft: rgba(92, 122, 98, 0.10);
+  --blush:     #EADFDB;
+  --rule:      #E4DBD0;
+  --rule-soft: #EDE6DC;
+
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:  'Commissioner', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+           'Segoe UI', system-ui, Arial, sans-serif;
+  --nav-h: 62px;
+  --measure: 36rem;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 18px); }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 1.06rem;
+  line-height: 1.72;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--plum); }
+a:hover { color: var(--plum-deep); }
+::selection { background: var(--blush); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; border-radius: 3px; }
+img { max-width: 100%; height: auto; display: block; }
+
+.skip {
+  position: absolute; top: -60px; left: 14px; z-index: 200;
+  background: var(--plum); color: #fff; padding: 10px 18px;
+  border-radius: 0 0 6px 6px; text-decoration: none; font-size: .9rem;
+  transition: top .2s;
+}
+.skip:focus { top: 0; }
+
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 2rem; }
+
+/* ============================================================
+   Nav
+   ============================================================ */
+.nav {
+  position: sticky; top: 0; z-index: 50; height: var(--nav-h);
+  background: color-mix(in srgb, var(--cream) 92%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.nav-in {
+  max-width: 64rem; height: 100%; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: .6rem; text-decoration: none;
+  font-family: var(--serif); font-size: 1.28rem; font-weight: 600;
+  color: var(--ink); white-space: nowrap; letter-spacing: .01em;
+}
+.nav-brand img { width: 34px; height: 34px; flex: none; }
+@media (max-width: 520px) { .nav-brand span { display: none; } }
+.nav-links {
+  display: flex; align-items: center; gap: 1.5rem; list-style: none; margin: 0; padding: 0;
+}
+.nav-links a {
+  font-size: .875rem; font-weight: 400; color: var(--ink-2);
+  text-decoration: none; white-space: nowrap;
+  padding-bottom: 2px; border-bottom: 1.5px solid transparent;
+  transition: color .18s, border-color .18s;
+}
+.nav-links a:hover { color: var(--plum); border-bottom-color: var(--plum); }
+.nav-cta {
+  display: inline-block; background: var(--plum); color: #fff !important;
+  padding: .55rem 1.15rem; border-radius: 999px; font-size: .875rem;
+  text-decoration: none; border: none !important;
+  transition: background-color .2s;
+}
+.nav-cta:hover { background: var(--plum-deep); }
+@media (max-width: 940px) { .nav-links li:not(.keep) { display: none; } }
+
+/* ============================================================
+   Τυπογραφία
+   ============================================================ */
+h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; letter-spacing: .005em; }
+h1 { font-size: clamp(2.6rem, 6vw, 3.9rem); line-height: 1.1; margin: 0 0 .6rem; }
+h2 { font-size: clamp(1.85rem, 3.6vw, 2.4rem); line-height: 1.2; margin: 0 0 .5rem; }
+h3 { font-size: 1.3rem; line-height: 1.3; margin: 0 0 .35rem; }
+
+.eyebrow {
+  font-family: var(--sans); font-size: .74rem; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--sage);
+  margin-bottom: 1rem;
+}
+.lead { font-size: 1.18rem; color: var(--ink-2); max-width: var(--measure); }
+p { margin: 0 0 1.05rem; }
+p:last-child { margin-bottom: 0; }
+.measure { max-width: var(--measure); }
+
+section { padding: 5.5rem 0; }
+.band { background: var(--cream-2); }
+.band-soft { background: var(--surface); }
+
+.section-head { max-width: 40rem; margin-bottom: 3rem; }
+.section-head p { color: var(--ink-2); margin-top: .6rem; }
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero { padding: 5rem 0 4.5rem; }
+.hero-grid {
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: 4rem; align-items: center;
+}
+.hero .sub {
+  font-family: var(--sans); font-size: 1rem; font-weight: 500;
+  letter-spacing: .04em; color: var(--plum); margin-bottom: .3rem;
+}
+.hero .place {
+  font-size: .92rem; color: var(--ink-3); margin-bottom: 1.6rem;
+}
+.hero-art {
+  border-radius: 10px; overflow: hidden;
+  box-shadow: 0 18px 50px -28px rgba(93, 63, 73, .5);
+}
+.btn-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .85rem 1.6rem; border-radius: 999px;
+  font-family: var(--sans); font-size: .95rem; font-weight: 500;
+  text-decoration: none; border: 1px solid transparent; cursor: pointer;
+  transition: all .2s;
+}
+.btn-primary { background: var(--plum); color: #fff; }
+.btn-primary:hover { background: var(--plum-deep); color: #fff; }
+.btn-ghost { background: transparent; color: var(--ink-2); border-color: var(--rule); }
+.btn-ghost:hover { border-color: var(--plum); color: var(--plum); background: var(--plum-soft); }
+.btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7;
+           stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* ============================================================
+   Κάρτες δυσκολιών
+   ============================================================ */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+.card {
+  background: var(--surface); border: 1px solid var(--rule-soft);
+  border-radius: 12px; padding: 1.6rem 1.5rem;
+  transition: border-color .2s, transform .2s;
+}
+.card:hover { border-color: var(--blush); transform: translateY(-2px); }
+.card .ic {
+  width: 38px; height: 38px; border-radius: 10px; margin-bottom: .9rem;
+  display: grid; place-items: center; background: var(--sage-soft);
+}
+.card .ic svg { width: 19px; height: 19px; fill: none; stroke: var(--sage);
+                stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.card h3 { font-family: var(--sans); font-size: 1.02rem; font-weight: 600; color: var(--ink); }
+.card p { font-size: .95rem; color: var(--ink-2); margin: 0; }
+
+/* ============================================================
+   Ποια είμαι
+   ============================================================ */
+.about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3.5rem; align-items: start; }
+.portrait {
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 20px 48px -26px rgba(93, 63, 73, .45);
+}
+.creds {
+  list-style: none; margin: 1.8rem 0 0; padding: 1.5rem 0 0;
+  border-top: 1px solid var(--rule);
+}
+.creds li {
+  position: relative; padding-left: 1.4rem; margin-bottom: .7rem;
+  font-size: .96rem; color: var(--ink-2);
+}
+.creds li:last-child { margin-bottom: 0; }
+.creds li::before {
+  content: ''; position: absolute; left: 0; top: .62em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
+}
+.creds b { color: var(--ink); font-weight: 600; }
+
+/* ============================================================
+   Απόσπασμα
+   ============================================================ */
+.quote {
+  text-align: center; max-width: 32rem; margin: 0 auto;
+}
+.quote p {
+  font-family: var(--serif); font-size: clamp(1.6rem, 3.4vw, 2.15rem);
+  line-height: 1.35; color: var(--plum-deep); font-style: italic;
+}
+.quote .attr {
+  font-family: var(--sans); font-size: .78rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-3); font-style: normal;
+}
+
+/* ============================================================
+   Υπηρεσίες
+   ============================================================ */
+.services { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.service {
+  background: var(--surface); border: 1px solid var(--rule-soft);
+  border-radius: 12px; padding: 2rem 1.9rem;
+}
+.service .num {
+  font-family: var(--serif); font-size: 1.6rem; color: var(--blush);
+  line-height: 1; margin-bottom: .6rem;
+}
+.service h3 { margin-bottom: .5rem; }
+.service p { font-size: .97rem; margin: 0; }
+.service .who {
+  display: block; margin-top: .9rem; padding-top: .9rem;
+  border-top: 1px solid var(--rule-soft);
+  font-size: .87rem; color: var(--ink-3);
+}
+
+/* Δια ζώσης / διαδικτυακά */
+.online {
+  display: flex; gap: 1.6rem; align-items: flex-start; margin-top: 1.4rem;
+  background: var(--surface); border: 1px solid var(--rule-soft);
+  border-left: 3px solid var(--sage); border-radius: 12px; padding: 1.9rem;
+}
+.online-ic {
+  width: 44px; height: 44px; border-radius: 11px; flex: none;
+  display: grid; place-items: center; background: var(--sage-soft);
+}
+.online-ic svg { width: 22px; height: 22px; fill: none; stroke: var(--sage);
+                 stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.online h3 { margin-bottom: .4rem; }
+.online p { font-size: .97rem; margin: 0; max-width: 44rem; }
+.online b { color: var(--ink); font-weight: 600; }
+@media (max-width: 700px) { .online { flex-direction: column; gap: 1rem; padding: 1.6rem; } }
+
+/* ============================================================
+   Βήματα
+   ============================================================ */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; counter-reset: s; }
+.step { counter-increment: s; }
+.step::before {
+  content: counter(s); display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--plum-soft); color: var(--plum);
+  font-family: var(--serif); font-size: 1.25rem; margin-bottom: 1rem;
+}
+.step h3 { font-family: var(--sans); font-size: 1.02rem; font-weight: 600; }
+.step p { font-size: .95rem; margin: 0; }
+
+/* ============================================================
+   Accordion (FAQ + βιογραφικό)
+   ============================================================ */
+details {
+  border-bottom: 1px solid var(--rule); padding: 1.15rem 0;
+}
+details:first-of-type { border-top: 1px solid var(--rule); }
+summary {
+  cursor: pointer; list-style: none; display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 1.5rem;
+  font-size: 1.03rem; font-weight: 500; color: var(--ink);
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: '+'; flex: none; font-size: 1.3rem; line-height: 1; color: var(--plum);
+  transition: transform .25s; font-weight: 300;
+}
+details[open] summary::after { transform: rotate(45deg); }
+details > div { padding-top: .85rem; max-width: var(--measure); font-size: .98rem; }
+details > div p { margin-bottom: .8rem; }
+
+/* ============================================================
+   Επικοινωνία
+   ============================================================ */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 4rem; align-items: start; }
+.contact-list { list-style: none; margin: 2rem 0 0; padding: 0; }
+.contact-list li { display: flex; gap: .9rem; margin-bottom: 1.4rem; align-items: flex-start; }
+.contact-list svg {
+  width: 20px; height: 20px; flex: none; margin-top: .2rem;
+  fill: none; stroke: var(--plum); stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.contact-list .k {
+  display: block; font-size: .76rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-3); margin-bottom: .1rem;
+}
+.contact-list a { text-decoration: none; font-size: 1.02rem; }
+.contact-list a:hover { text-decoration: underline; }
+
+.ways {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem;
+  max-width: 54rem; margin: 0 auto;
+}
+.way {
+  display: block; text-align: center; text-decoration: none;
+  background: var(--surface); border: 1px solid var(--rule-soft);
+  border-radius: 14px; padding: 2rem 1.4rem;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.way:hover {
+  border-color: var(--blush); transform: translateY(-3px);
+  box-shadow: 0 14px 34px -22px rgba(93, 63, 73, .45);
+}
+.way-ic {
+  width: 46px; height: 46px; border-radius: 50%; margin: 0 auto .9rem;
+  display: grid; place-items: center; background: var(--plum-soft);
+}
+.way-ic svg { width: 21px; height: 21px; fill: none; stroke: var(--plum);
+              stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.way-k {
+  display: block; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: .3rem;
+}
+.way-v { display: block; font-size: 1.03rem; color: var(--plum); font-weight: 500; word-break: break-word; }
+.way:hover .way-v { color: var(--plum-deep); }
+
+.place-line {
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+  margin: 2.2rem auto 0; font-size: .97rem; color: var(--ink-2); text-align: center;
+}
+.place-line svg { width: 19px; height: 19px; flex: none; fill: none; stroke: var(--sage);
+                  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.place-line b { color: var(--ink); font-weight: 600; }
+
+.privacy-note {
+  max-width: 40rem; margin: 1.6rem auto 0; text-align: center;
+  font-size: .92rem; color: var(--ink-3);
+}
+
+.note {
+  background: var(--plum-soft); border-radius: 10px; padding: 1.3rem 1.5rem;
+  font-size: .93rem; color: var(--ink-2); max-width: var(--measure);
+}
+.note b { color: var(--ink); }
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer {
+  background: var(--cream-2); border-top: 1px solid var(--rule);
+  padding: 3rem 0 2.5rem; font-size: .87rem; color: var(--ink-3);
+}
+.foot-in { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; align-items: center; }
+.foot-brand { display: flex; align-items: center; gap: 1.1rem; }
+.foot-brand img { width: 84px; height: auto; flex: none; opacity: .9; }
+@media (max-width: 640px) { .foot-in { flex-direction: column; align-items: flex-start; }
+  .foot-in > div:last-child { text-align: left !important; } }
+footer a { color: var(--ink-2); text-decoration: none; }
+footer a:hover { color: var(--plum); text-decoration: underline; }
+.foot-ig { display: inline-flex; align-items: center; gap: .45rem; }
+.foot-ig svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ways { grid-template-columns: 1fr; }
+  .cards, .steps { grid-template-columns: 1fr; gap: 1rem; }
+  .services { grid-template-columns: 1fr; }
+  .portrait { max-width: 280px; }
+  .hero-art { order: -1; max-width: 420px; }
+  section { padding: 4rem 0; }
+  .wrap, .nav-in { padding: 0 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Μετάβαση στο περιεχόμενο</a>
+
+<nav class="nav" aria-label="Κύρια πλοήγηση">
+  <div class="nav-in">
+    <a href="#top" class="nav-brand">
+      <img src="./mark.png" alt="" width="512" height="512">
+      <span>Αικατερίνη Λαζαρίδου</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">Ποια είμαι</a></li>
+      <li><a href="#approach">Προσέγγιση</a></li>
+      <li><a href="#services">Υπηρεσίες</a></li>
+      <li><a href="#start">Πώς ξεκινάμε</a></li>
+      <li><a href="#faq">Ερωτήσεις</a></li>
+      <li class="keep"><a href="#contact" class="nav-cta">Επικοινωνία</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="sub">Ψυχολόγος · Συστημική Ψυχοθεραπεύτρια</div>
+        <h1>Ας μιλήσουμε για όσα σας δυσκολεύουν.</h1>
+        <div class="place">Θεσσαλονίκη</div>
+        <p class="lead">Δεν χρειάζεται να ξέρετε από πού να ξεκινήσετε ή πώς να το ονομάσετε.
+        Αρκεί να υπάρχει κάτι που σας απασχολεί και η διάθεση να το κοιτάξουμε μαζί.</p>
+        <div class="btn-row">
+          <a href="#contact" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6 9-6"/></svg>
+            Επικοινωνήστε μαζί μου
+          </a>
+          <a href="tel:+306978721941" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z"/></svg>
+            697 872 1941
+          </a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="./illustration.jpg" alt="Εικονογράφηση: η αλλαγή δεν συμβαίνει γραμμικά" width="1200" height="872">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ΔΥΣΚΟΛΙΕΣ ============================ -->
+  <section class="band" id="difficulties">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Τι με φέρνει εδώ;</div>
+        <h2>Κάποιες από τις δυσκολίες που συναντάμε συχνά</h2>
+        <p>Δεν χρειάζεται να ταιριάζετε ακριβώς σε κάποια από αυτές. Είναι απλώς
+        αφορμές για να καταλάβετε αν αυτό που ζείτε χωράει σε μια συζήτηση.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6c0 2.2 1 3.4 1.8 4.5.6.8.9 1.4.9 2.3h6.6c0-.9.3-1.5.9-2.3C17 12.4 18 11.2 18 9a6 6 0 0 0-6-6z"/><path d="M9.7 19h4.6"/></svg></div>
+          <h3>Άγχος και πίεση</h3>
+          <p>Επίμονη ανησυχία, δυσκολία στον ύπνο, η αίσθηση ότι δεν προλαβαίνετε ή ότι δεν είστε αρκετοί.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="9" r="3.2"/><circle cx="15.5" cy="9" r="3.2"/><path d="M3.5 19.5c.6-3 2.5-4.6 5-4.6M20.5 19.5c-.6-3-2.5-4.6-5-4.6"/></svg></div>
+          <h3>Σχέσεις και ζευγάρι</h3>
+          <p>Επαναλαμβανόμενοι καβγάδες, απόσταση, αποφάσεις που μένουν ανοιχτές, εμπιστοσύνη που δοκιμάζεται.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10l8-5.5 8 5.5v10"/><path d="M9.5 20v-5h5v5"/></svg></div>
+          <h3>Οικογένεια και γονεϊκότητα</h3>
+          <p>Εντάσεις στο σπίτι, όρια, χωρισμός, αναδοχή και υιοθεσία, αλλαγές στη σύνθεση της οικογένειας.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l8.5 4.3L12 12 3.5 7.8 12 3.5z"/><path d="M7 10v4.5c0 1.5 2.2 2.6 5 2.6s5-1.1 5-2.6V10"/></svg></div>
+          <h3>Παιδιά και εφηβεία</h3>
+          <p>Δυσκολίες στο σχολείο, συμπεριφορά που ανησυχεί, απομόνωση, ένταση στην επικοινωνία με τον έφηβο.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c3-8 6-8 9 0s6 4 9-4"/></svg></div>
+          <h3>Μεταβάσεις και απώλειες</h3>
+          <p>Πένθος, χωρισμός, μετακόμιση, αλλαγή δουλειάς — περίοδοι όπου τα παλιά δεδομένα δεν ισχύουν πια.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v4.5l3 2"/></svg></div>
+          <h3>Η αίσθηση ότι κάτι δεν πάει καλά</h3>
+          <p>Χωρίς συγκεκριμένη αιτία. Κούραση, κενό, απώλεια ενδιαφέροντος για πράγματα που κάποτε μετρούσαν.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ΠΟΙΑ ΕΙΜΑΙ ============================ -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="portrait">
+        <img src="./katerina.jpg" alt="Αικατερίνη Λαζαρίδου" width="880" height="1100">
+      </div>
+      <div>
+        <div class="eyebrow">Ποια είμαι</div>
+        <h2>Αικατερίνη Λαζαρίδου</h2>
+        <div class="measure" style="margin-top:1.2rem">
+          <p>Είμαι ψυχολόγος και εκπαιδευμένη στη συστημική ψυχοθεραπεία. Ζω και εργάζομαι
+          στη Θεσσαλονίκη.</p>
+
+          <p>Στη δουλειά μου με απασχολεί λιγότερο το τι «έχει» κάποιος και περισσότερο
+          το πώς ζει: μέσα σε ποιες σχέσεις, ποιες υποχρεώσεις και ποιες ιστορίες που
+          κουβαλάει από την οικογένειά του. Οι δυσκολίες σπάνια ανήκουν σε ένα μόνο άτομο —
+          συνήθως έχουν να κάνουν με το πώς συνδεόμαστε με τους γύρω μας.</p>
+
+          <p>Τα τελευταία χρόνια εργάζομαι με παιδιά και εφήβους στο Ελληνικό Παιδικό Χωριό,
+          όπου στηρίζω και οικογένειες στη διαδικασία της αναδοχής και της υιοθεσίας.
+          Παράλληλα δουλεύω με ενήλικες και ζευγάρια.</p>
+
+          <p>Έχω περάσει από πλαίσια ψυχικής υγείας που με δίδαξαν πολλά — το Ψυχιατρικό
+          Νοσοκομείο Θεσσαλονίκης, το Κέντρο Ψυχικής Υγείας Δυτικού Τομέα, το Εργαστήριο
+          Εφαρμοσμένης Ψυχολογίας του ΑΠΘ — και έχω συμμετάσχει σε έρευνα για την ψυχική
+          υγεία των νέων στο University of Birmingham.</p>
+        </div>
+
+        <ul class="creds">
+          <li><b>Μεταπτυχιακό Κλινικής Ψυχολογίας &amp; Νευροψυχολογίας</b>, Τμήμα Ψυχολογίας, ΑΠΘ</li>
+          <li><b>Πτυχίο Ψυχολογίας</b>, ΑΠΘ — με άδεια ασκήσεως επαγγέλματος</li>
+          <li><b>Εκπαίδευση στη Συστημική Ψυχοθεραπεία</b>, Κέντρο Συστημικής Μελέτης και Θεραπείας</li>
+        </ul>
+
+        <div class="btn-row">
+          <a href="./CV_Aikaterini_Lazaridou.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v12"/><path d="M7.5 11.5L12 16l4.5-4.5"/><path d="M4.5 19.5h15"/></svg>
+            Αναλυτικό βιογραφικό (PDF)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ΑΠΟΣΠΑΣΜΑ ============================ -->
+  <section class="band-soft" style="padding:4.5rem 0">
+    <div class="wrap quote">
+      <p>«Η αλλαγή δεν συμβαίνει γραμμικά.»</p>
+      <div class="attr">therapy.voices</div>
+    </div>
+  </section>
+
+  <!-- ============================ ΠΡΟΣΕΓΓΙΣΗ ============================ -->
+  <section id="approach">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Η προσέγγισή μου</div>
+        <h2>Τι σημαίνει συστημική ψυχοθεραπεία</h2>
+      </div>
+      <div class="measure">
+        <p>Η συστημική προσέγγιση ξεκινά από μια απλή παραδοχή: κανείς δεν δυσκολεύεται
+        στο κενό. Ό,τι ζούμε παίρνει νόημα μέσα στις σχέσεις μας — την οικογένεια,
+        τον σύντροφο, τη δουλειά, την εποχή που μεγαλώσαμε.</p>
+
+        <p>Αυτό αλλάζει το ερώτημα. Αντί για «τι φταίει σε εσένα», κοιτάμε πώς λειτουργεί
+        το μοτίβο: ποιος αντιδρά σε ποιον, τι επαναλαμβάνεται, τι ρόλο έχει αναλάβει
+        ο καθένας χωρίς να το έχει επιλέξει. Συχνά η δυσκολία ενός ανθρώπου είναι ο
+        τρόπος με τον οποίο μια ολόκληρη οικογένεια προσπαθεί να ισορροπήσει.</p>
+
+        <p>Πρακτικά, αυτό σημαίνει ότι σε κάποιες περιπτώσεις δουλεύουμε μόνοι μας και
+        σε άλλες καλούμε και άλλα πρόσωπα — τον σύντροφο, τους γονείς, ένα αδερφάκι.
+        Δεν είναι κάτι που αποφασίζεται από πριν· το βρίσκουμε μαζί.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ΥΠΗΡΕΣΙΕΣ ============================ -->
+  <section class="band" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Υπηρεσίες</div>
+        <h2>Με ποιους δουλεύω</h2>
+      </div>
+      <div class="services">
+        <article class="service">
+          <div class="num">01</div>
+          <h3>Ατομική ψυχοθεραπεία ενηλίκων</h3>
+          <p>Ένας σταθερός χώρος για να δούμε τι σας δυσκολεύει, πώς έφτασε να γίνει έτσι
+          και τι μπορεί να αλλάξει. Δουλεύουμε με τον ρυθμό σας, χωρίς πίεση να πείτε
+          περισσότερα από όσα αντέχετε.</p>
+          <span class="who">Για ενήλικες κάθε ηλικίας</span>
+        </article>
+
+        <article class="service">
+          <div class="num">02</div>
+          <h3>Παιδιά και έφηβοι</h3>
+          <p>Δουλειά με το παιδί ή τον έφηβο, πάντα σε συνεννόηση με τους γονείς. Συχνά
+          αυτό που φαίνεται ως «πρόβλημα συμπεριφοράς» είναι ο τρόπος που ένα παιδί
+          εκφράζει κάτι για το οποίο δεν έχει ακόμη λέξεις.</p>
+          <span class="who">Παιδιά σχολικής ηλικίας και έφηβοι</span>
+        </article>
+
+        <article class="service">
+          <div class="num">03</div>
+          <h3>Θεραπεία ζεύγους</h3>
+          <p>Για ζευγάρια που βρίσκονται στην ίδια συζήτηση ξανά και ξανά. Δεν ψάχνουμε
+          ποιος έχει δίκιο, αλλά τι εξυπηρετεί ο καβγάς και τι προσπαθεί ο καθένας να πει
+          και δεν ακούγεται.</p>
+          <span class="who">Ζευγάρια, με ή χωρίς γάμο, σε κάθε φάση της σχέσης</span>
+        </article>
+
+        <article class="service">
+          <div class="num">04</div>
+          <h3>Συμβουλευτική γονέων &amp; οικογένειας</h3>
+          <p>Όταν το ζητούμενο δεν είναι θεραπεία για το παιδί αλλά στήριξη για εσάς:
+          όρια, επικοινωνία, διαχείριση εντάσεων, αλλαγές στην οικογένεια όπως ο χωρισμός,
+          η αναδοχή ή η υιοθεσία.</p>
+          <span class="who">Γονείς, ζευγάρια γονέων, ευρύτερη οικογένεια</span>
+        </article>
+      </div>
+
+      <div class="online">
+        <div class="online-ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="13" height="13" rx="2.5"/><path d="M15.5 10.5l6-3.2v9.4l-6-3.2z"/></svg>
+        </div>
+        <div>
+          <h3>Δια ζώσης ή διαδικτυακά</h3>
+          <p>Οι συνεδρίες γίνονται από κοντά στη Θεσσαλονίκη ή διαδικτυακά μέσω
+          <b>Microsoft Teams</b>. Η διαδικτυακή συνεδρία έχει την ίδια διάρκεια και την ίδια
+          εμπιστευτικότητα με τη δια ζώσης — χρειάζεται μόνο ένας ήσυχος χώρος και μια
+          σταθερή σύνδεση. Είναι λύση για όσους μένουν μακριά, ταξιδεύουν ή δυσκολεύονται
+          να μετακινηθούν.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ΠΩΣ ΞΕΚΙΝΑΜΕ ============================ -->
+  <section id="start">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Πώς ξεκινάμε</div>
+        <h2>Τα πρώτα βήματα, χωρίς δεσμεύσεις</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>Ένα πρώτο μήνυμα</h3>
+          <p>Μου γράφετε με e-mail ή από τη φόρμα. Δεν χρειάζεται να εξηγήσετε τίποτα
+          αναλυτικά — μια-δυο γραμμές αρκούν.</p>
+        </div>
+        <div class="step">
+          <h3>Η πρώτη συνάντηση</h3>
+          <p>Μια συνάντηση γνωριμίας. Μου λέτε τι σας φέρνει, σας λέω πώς δουλεύω, και
+          βλέπουμε αν αισθάνεστε άνετα. Δεν δεσμεύεστε σε τίποτα παραπάνω.</p>
+        </div>
+        <div class="step">
+          <h3>Η συνέχεια</h3>
+          <p>Αν αποφασίσουμε να συνεχίσουμε, ορίζουμε μια σταθερή ώρα. Η διάρκεια της
+          θεραπείας δεν είναι ίδια για όλους και την επαναξιολογούμε μαζί.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ΕΡΩΤΗΣΕΙΣ ============================ -->
+  <section class="band" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Συχνές ερωτήσεις</div>
+        <h2>Πράγματα που καλό είναι να ξέρετε</h2>
+      </div>
+      <div style="max-width:44rem">
+
+        <details>
+          <summary>Πόσο διαρκεί μια συνεδρία και κάθε πότε γίνεται;</summary>
+          <div><p>Η συνεδρία διαρκεί περίπου 50 λεπτά. Συνήθως ξεκινάμε με μία συνάντηση
+          την εβδομάδα, ώστε να υπάρξει συνέχεια. Η συχνότητα μπορεί να αλλάξει καθώς
+          προχωράμε, πάντα σε συνεννόηση.</p></div>
+        </details>
+
+        <details>
+          <summary>Πόσο καιρό κρατάει μια θεραπεία;</summary>
+          <div><p>Δεν υπάρχει μία απάντηση. Κάποιες φορές αρκούν λίγες συναντήσεις για ένα
+          συγκεκριμένο ζήτημα· άλλες φορές χρειάζεται περισσότερος χρόνος. Αυτό που μπορώ
+          να υποσχεθώ είναι ότι θα το κουβεντιάζουμε ανοιχτά και δεν θα συνεχίσουμε επειδή
+          «έτσι γίνεται».</p></div>
+        </details>
+
+        <details>
+          <summary>Είναι εμπιστευτικά όσα λέω;</summary>
+          <div><p>Ναι. Ό,τι ειπωθεί στη συνεδρία καλύπτεται από το επαγγελματικό απόρρητο
+          και τον κώδικα δεοντολογίας των ψυχολόγων. Οι μόνες εξαιρέσεις είναι στενά
+          ορισμένες και αφορούν σοβαρό κίνδυνο για τη ζωή ή την ασφάλεια — και ακόμη και
+          τότε, θα το συζητήσουμε πρώτα μαζί.</p>
+          <p>Στη θεραπεία παιδιών και εφήβων συμφωνούμε από την αρχή, μαζί με τους γονείς,
+          τι μοιράζεται και τι όχι, ώστε το παιδί να νιώθει ασφάλεια.</p></div>
+        </details>
+
+        <details>
+          <summary>Πρέπει να έρθω με τον σύντροφο ή την οικογένειά μου;</summary>
+          <div><p>Όχι απαραίτητα. Η συστημική προσέγγιση κοιτάζει τις σχέσεις, αλλά αυτό
+          δεν σημαίνει ότι πρέπει να είναι όλοι παρόντες. Πολλές φορές δουλεύουμε μόνοι
+          μας. Αν κάποια στιγμή φανεί χρήσιμο να έρθει και κάποιος άλλος, θα το προτείνω
+          και θα το αποφασίσουμε μαζί.</p></div>
+        </details>
+
+        <details>
+          <summary>Πώς λειτουργεί η πρώτη επικοινωνία;</summary>
+          <div><p>Μου στέλνετε ένα e-mail ή συμπληρώνετε τη φόρμα με το όνομά σας και έναν
+          τρόπο να σας βρω. Απαντώ συνήθως μέσα σε λίγες μέρες. Στο πρώτο μήνυμα δεν
+          χρειάζεται —και καλύτερα να μην— γράψετε προσωπικές λεπτομέρειες· αυτά τα λέμε
+          από κοντά.</p></div>
+        </details>
+
+        <details>
+          <summary>Πώς γίνονται οι διαδικτυακές συνεδρίες;</summary>
+          <div><p>Μέσω <b>Microsoft Teams</b>. Σας στέλνω έναν σύνδεσμο πριν από κάθε
+          συνάντηση — δεν χρειάζεται λογαριασμός, ανοίγει από τον browser ή την εφαρμογή.
+          Χρειάζεστε έναν χώρο όπου δεν θα σας ακούει ή θα σας διακόπτει κάποιος, και
+          μια σταθερή σύνδεση.</p></div>
+        </details>
+
+        <details>
+          <summary>Ποιο είναι το κόστος;</summary>
+          <div><p>Το κόστος της συνεδρίας συζητείται στην πρώτη μας επικοινωνία, πριν
+          κλείσουμε ραντεβού, ώστε να το ξέρετε από την αρχή.</p></div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ΕΠΙΚΟΙΝΩΝΙΑ ============================ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head" style="text-align:center;margin-left:auto;margin-right:auto">
+        <div class="eyebrow">Επικοινωνία</div>
+        <h2>Ένα μήνυμα είναι αρκετό για αρχή</h2>
+        <p>Δεν χρειάζεται να ξέρετε τι θέλετε να πείτε. Γράψτε ή τηλεφωνήστε μου
+        και τα υπόλοιπα τα βρίσκουμε από κοντά.</p>
+      </div>
+
+      <div class="ways">
+        <a class="way" href="tel:+306978721941">
+          <span class="way-ic">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z"/></svg>
+          </span>
+          <span class="way-k">Για ραντεβού</span>
+          <span class="way-v">+30 697 872 1941</span>
+        </a>
+
+        <a class="way" href="mailto:laikateri@gmail.com">
+          <span class="way-ic">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6 9-6"/></svg>
+          </span>
+          <span class="way-k">E-mail</span>
+          <span class="way-v">laikateri@gmail.com</span>
+        </a>
+
+        <a class="way" href="https://www.instagram.com/therapy.voices/" target="_blank" rel="noopener">
+          <span class="way-ic">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </span>
+          <span class="way-k">Instagram — DM</span>
+          <span class="way-v">@therapy.voices</span>
+        </a>
+      </div>
+
+      <div class="place-line">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span><b>Θεσσαλονίκη</b> — δια ζώσης συνεδρίες, ή διαδικτυακά μέσω Microsoft Teams</span>
+      </div>
+
+      <p class="privacy-note">
+        Στο πρώτο μήνυμα ή τηλεφώνημα δεν χρειάζεται να περιγράψετε τι σας συμβαίνει.
+        Αρκεί το όνομά σας και ότι θα θέλατε μια πρώτη συνάντηση — τα υπόλοιπα τα λέμε
+        στη συνεδρία, όπου προστατεύονται από το επαγγελματικό απόρρητο.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <img src="./logo.png" alt="therapy voices" width="760" height="663">
+      <div>
+        <div style="color:var(--ink-2);margin-bottom:.3rem">Αικατερίνη Λαζαρίδου — Ψυχολόγος, Συστημική Ψυχοθεραπεύτρια</div>
+        <div>Θεσσαλονίκη · <a href="tel:+306978721941">+30 697 872 1941</a> · <a href="mailto:laikateri@gmail.com">laikateri@gmail.com</a></div>
+      </div>
+    </div>
+    <div style="text-align:right">
+      <a class="foot-ig" href="https://www.instagram.com/therapy.voices/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        @therapy.voices
+      </a>
+      <div style="margin-top:.5rem">© 2026 Αικατερίνη Λαζαρίδου</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

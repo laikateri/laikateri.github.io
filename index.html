@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Αικατερίνη Λαζαρίδου — Ψυχολόγος, Συστημική Ψυχοθεραπεύτρια | Θεσσαλονίκη</title>
-<meta name="description" content="Αικατερίνη Λαζαρίδου, ψυχολόγος και συστημική ψυχοθεραπεύτρια στη Θεσσαλονίκη. Ατομική ψυχοθεραπεία ενηλίκων, παιδιά και έφηβοι, θεραπεία ζεύγους, συμβουλευτική γονέων.">
+<meta name="description" content="Αικατερίνη Λαζαρίδου, ψυχολόγος και συστημική ψυχοθεραπεύτρια στη Θεσσαλονίκη. Ατομική ψυχοθεραπεία ενηλίκων, παιδιά και έφηβοι, θεραπεία ζεύγους, συμβουλευτική γονέων. Δια ζώσης ή διαδικτυακά.">
 <meta name="author" content="Αικατερίνη Λαζαρίδου">
+
 <link rel="icon" href="./favicon.ico" sizes="32x32">
 <link rel="icon" href="./favicon.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
@@ -19,7 +20,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -35,31 +36,31 @@
   "knowsLanguage": ["el", "en"]
 }
 </script>
-
 <style>
 /* ============================================================
-   Παλέτα — παστέλ, από την εικόνα του therapy.voices
+   Παλέτα — παστέλ από το therapy.voices, με το πράσινο ισότιμο
    ============================================================ */
 :root {
-  --cream:     #F6F3ED;
-  --cream-2:   #EFE9DF;
-  --surface:   #FFFDFA;
-  --ink:       #3B3134;
-  --ink-2:     #63545A;
-  --ink-3:     #9A8B90;
-  --plum:      #7A5560;
-  --plum-deep: #5D3F49;
-  --plum-soft: rgba(122, 85, 96, 0.09);
-  --sage:      #5C7A62;
-  --sage-soft: rgba(92, 122, 98, 0.10);
-  --blush:     #EADFDB;
-  --rule:      #E4DBD0;
-  --rule-soft: #EDE6DC;
+  --cream:      #F7F4EE;
+  --cream-2:    #F0EADF;
+  --sage-band:  #E9EEE6;
+  --surface:    #FFFDFA;
+  --ink:        #33292C;
+  --ink-2:      #5E5158;
+  --ink-3:      #948789;
+  --plum:       #7A5560;
+  --plum-deep:  #5D3F49;
+  --plum-soft:  rgba(122, 85, 96, 0.09);
+  --sage:       #4F6F58;
+  --sage-deep:  #3C5644;
+  --sage-soft:  rgba(79, 111, 88, 0.10);
+  --blush:      #E8DCD7;
+  --rule:       #E3DACF;
+  --rule-soft:  #EDE6DC;
 
-  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --sans:  'Commissioner', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-           'Segoe UI', system-ui, Arial, sans-serif;
-  --nav-h: 62px;
+  --sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+          'Segoe UI', system-ui, Arial, sans-serif;
+  --nav-h: 64px;
   --measure: 36rem;
   color-scheme: light;
 }
@@ -80,13 +81,13 @@ body {
 
 a { color: var(--plum); }
 a:hover { color: var(--plum-deep); }
-::selection { background: var(--blush); color: var(--ink); }
-:focus-visible { outline: 2px solid var(--plum); outline-offset: 3px; border-radius: 3px; }
+::selection { background: var(--sage-soft); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; border-radius: 3px; }
 img { max-width: 100%; height: auto; display: block; }
 
 .skip {
   position: absolute; top: -60px; left: 14px; z-index: 200;
-  background: var(--plum); color: #fff; padding: 10px 18px;
+  background: var(--sage); color: #fff; padding: 10px 18px;
   border-radius: 0 0 6px 6px; text-decoration: none; font-size: .9rem;
   transition: top .2s;
 }
@@ -95,7 +96,7 @@ img { max-width: 100%; height: auto; display: block; }
 .wrap { max-width: 64rem; margin: 0 auto; padding: 0 2rem; }
 
 /* ============================================================
-   Nav
+   Nav — μάρκα αριστερά, σύνδεσμοι στο κέντρο
    ============================================================ */
 .nav {
   position: sticky; top: 0; z-index: 50; height: var(--nav-h);
@@ -104,92 +105,147 @@ img { max-width: 100%; height: auto; display: block; }
   border-bottom: 1px solid var(--rule-soft);
 }
 .nav-in {
-  max-width: 64rem; height: 100%; margin: 0 auto; padding: 0 2rem;
-  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  max-width: 68rem; height: 100%; margin: 0 auto; padding: 0 2rem;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem;
 }
 .nav-brand {
   display: flex; align-items: center; gap: .6rem; text-decoration: none;
-  font-family: var(--serif); font-size: 1.28rem; font-weight: 600;
-  color: var(--ink); white-space: nowrap; letter-spacing: .01em;
+  font-size: 1.02rem; font-weight: 700; letter-spacing: -.01em;
+  color: var(--ink); white-space: nowrap;
 }
 .nav-brand img { width: 34px; height: 34px; flex: none; }
-@media (max-width: 520px) { .nav-brand span { display: none; } }
 .nav-links {
-  display: flex; align-items: center; gap: 1.5rem; list-style: none; margin: 0; padding: 0;
+  grid-column: 2; justify-self: center;
+  display: flex; align-items: center; gap: 1.45rem;
+  list-style: none; margin: 0; padding: 0;
 }
 .nav-links a {
-  font-size: .875rem; font-weight: 400; color: var(--ink-2);
+  font-size: .875rem; font-weight: 500; color: var(--ink-2);
   text-decoration: none; white-space: nowrap;
   padding-bottom: 2px; border-bottom: 1.5px solid transparent;
   transition: color .18s, border-color .18s;
 }
-.nav-links a:hover { color: var(--plum); border-bottom-color: var(--plum); }
+.nav-links a:hover { color: var(--sage); border-bottom-color: var(--sage); }
 .nav-cta {
-  display: inline-block; background: var(--plum); color: #fff !important;
-  padding: .55rem 1.15rem; border-radius: 999px; font-size: .875rem;
+  display: inline-block; background: var(--sage); color: #fff !important;
+  padding: .55rem 1.2rem; border-radius: 999px; font-size: .875rem; font-weight: 600;
   text-decoration: none; border: none !important;
   transition: background-color .2s;
 }
-.nav-cta:hover { background: var(--plum-deep); }
-@media (max-width: 940px) { .nav-links li:not(.keep) { display: none; } }
+.nav-cta:hover { background: var(--sage-deep); }
+@media (max-width: 1000px) {
+  .nav-in { grid-template-columns: auto 1fr; gap: .7rem; }
+  .nav-links {
+    grid-column: 2; justify-self: end; gap: 1.05rem;
+    max-width: 100%; overflow-x: auto; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; padding: .2rem;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 14px);
+            mask-image: linear-gradient(to right, transparent, #000 14px);
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { font-size: .83rem; }
+  .nav-links li { flex: none; }
+  .nav-cta { padding: .48rem 1rem; }
+}
 
 /* ============================================================
    Τυπογραφία
    ============================================================ */
-h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; letter-spacing: .005em; }
-h1 { font-size: clamp(2.6rem, 6vw, 3.9rem); line-height: 1.1; margin: 0 0 .6rem; }
-h2 { font-size: clamp(1.85rem, 3.6vw, 2.4rem); line-height: 1.2; margin: 0 0 .5rem; }
-h3 { font-size: 1.3rem; line-height: 1.3; margin: 0 0 .35rem; }
+h1, h2, h3 { color: var(--ink); font-weight: 700; letter-spacing: -.022em; text-wrap: balance; }
+h1 { font-size: clamp(2.3rem, 5vw, 3.15rem); line-height: 1.08; margin: 0 0 .5rem; font-weight: 800; }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.15rem); line-height: 1.16; margin: 0 0 .5rem; }
+h3 { font-size: 1.16rem; line-height: 1.3; margin: 0 0 .35rem; font-weight: 700; }
 
 .eyebrow {
-  font-family: var(--sans); font-size: .74rem; font-weight: 600;
-  letter-spacing: .18em; text-transform: uppercase; color: var(--sage);
-  margin-bottom: 1rem;
+  font-size: .72rem; font-weight: 700; letter-spacing: .17em;
+  text-transform: uppercase; color: var(--sage);
+  display: inline-flex; align-items: center; gap: .55rem; margin-bottom: .9rem;
 }
-.lead { font-size: 1.18rem; color: var(--ink-2); max-width: var(--measure); }
+.eyebrow::before {
+  content: ''; width: 22px; height: 2px; background: var(--sage); flex: none;
+}
+.lead { font-size: 1.14rem; color: var(--ink-2); max-width: var(--measure); }
 p { margin: 0 0 1.05rem; }
 p:last-child { margin-bottom: 0; }
 .measure { max-width: var(--measure); }
 
 section { padding: 5.5rem 0; }
 .band { background: var(--cream-2); }
+.band-sage { background: var(--sage-band); }
 .band-soft { background: var(--surface); }
 
 .section-head { max-width: 40rem; margin-bottom: 3rem; }
 .section-head p { color: var(--ink-2); margin-top: .6rem; }
 
 /* ============================================================
-   Hero
+   Εμφάνιση στο scroll
    ============================================================ */
-.hero { padding: 5rem 0 4.5rem; }
-.hero-grid {
-  display: grid; grid-template-columns: 1.05fr .95fr; gap: 4rem; align-items: center;
+.reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .75s cubic-bezier(.22,.61,.36,1),
+              transform .75s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
 }
-.hero .sub {
-  font-family: var(--sans); font-size: 1rem; font-weight: 500;
-  letter-spacing: .04em; color: var(--plum); margin-bottom: .3rem;
+.reveal.shown { opacity: 1; transform: none; }
+.stagger > * { opacity: 0; transform: translateY(18px);
+  transition: opacity .65s cubic-bezier(.22,.61,.36,1),
+              transform .65s cubic-bezier(.22,.61,.36,1); }
+.stagger.shown > * { opacity: 1; transform: none; }
+.stagger.shown > *:nth-child(2) { transition-delay: .07s; }
+.stagger.shown > *:nth-child(3) { transition-delay: .14s; }
+.stagger.shown > *:nth-child(4) { transition-delay: .21s; }
+.stagger.shown > *:nth-child(5) { transition-delay: .28s; }
+.stagger.shown > *:nth-child(6) { transition-delay: .35s; }
+
+/* ============================================================
+   Hero / Ποια είμαι
+   ============================================================ */
+.hero { padding: 4.5rem 0 5rem; }
+.hero-grid { display: grid; grid-template-columns: 340px 1fr; gap: 3.6rem; align-items: start; }
+.portrait {
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 22px 50px -28px rgba(60, 86, 68, .45);
 }
-.hero .place {
-  font-size: .92rem; color: var(--ink-3); margin-bottom: 1.6rem;
+.hero .role {
+  font-size: .95rem; font-weight: 600; letter-spacing: .02em;
+  color: var(--sage); margin-bottom: .3rem;
 }
-.hero-art {
-  border-radius: 10px; overflow: hidden;
-  box-shadow: 0 18px 50px -28px rgba(93, 63, 73, .5);
+.hero .place { font-size: .9rem; color: var(--ink-3); margin-bottom: 1.5rem; }
+
+.creds { list-style: none; margin: 1.8rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--rule); }
+.creds li { position: relative; padding-left: 1.4rem; margin-bottom: .7rem; font-size: .95rem; color: var(--ink-2); }
+.creds li:last-child { margin-bottom: 0; }
+.creds li::before {
+  content: ''; position: absolute; left: 0; top: .62em;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--sage);
 }
-.btn-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+.creds b { color: var(--ink); font-weight: 700; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.9rem; }
 .btn {
   display: inline-flex; align-items: center; gap: .5rem;
-  padding: .85rem 1.6rem; border-radius: 999px;
-  font-family: var(--sans); font-size: .95rem; font-weight: 500;
-  text-decoration: none; border: 1px solid transparent; cursor: pointer;
+  padding: .82rem 1.55rem; border-radius: 999px;
+  font-family: var(--sans); font-size: .93rem; font-weight: 600;
+  text-decoration: none; border: 1.5px solid transparent; cursor: pointer;
   transition: all .2s;
 }
-.btn-primary { background: var(--plum); color: #fff; }
-.btn-primary:hover { background: var(--plum-deep); color: #fff; }
+.btn-primary { background: var(--sage); color: #fff; }
+.btn-primary:hover { background: var(--sage-deep); color: #fff; }
 .btn-ghost { background: transparent; color: var(--ink-2); border-color: var(--rule); }
-.btn-ghost:hover { border-color: var(--plum); color: var(--plum); background: var(--plum-soft); }
-.btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7;
+.btn-ghost:hover { border-color: var(--sage); color: var(--sage); background: var(--sage-soft); }
+.btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8;
            stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* ============================================================
+   Η εικόνα της αλλαγής
+   ============================================================ */
+.change { padding: 4.5rem 0; }
+.change-wrap { max-width: 50rem; margin: 0 auto; }
+.change-art { width: 100%; height: auto; display: block; }
+.change-cap {
+  text-align: center; font-size: .78rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-3); margin-top: 1.2rem;
+}
 
 /* ============================================================
    Κάρτες δυσκολιών
@@ -197,207 +253,141 @@ section { padding: 5.5rem 0; }
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
 .card {
   background: var(--surface); border: 1px solid var(--rule-soft);
-  border-radius: 12px; padding: 1.6rem 1.5rem;
-  transition: border-color .2s, transform .2s;
+  border-radius: 14px; padding: 1.6rem 1.5rem;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
 }
-.card:hover { border-color: var(--blush); transform: translateY(-2px); }
+.card:hover {
+  border-color: var(--sage); transform: translateY(-3px);
+  box-shadow: 0 16px 34px -26px rgba(60, 86, 68, .5);
+}
 .card .ic {
-  width: 38px; height: 38px; border-radius: 10px; margin-bottom: .9rem;
+  width: 40px; height: 40px; border-radius: 11px; margin-bottom: .9rem;
   display: grid; place-items: center; background: var(--sage-soft);
 }
-.card .ic svg { width: 19px; height: 19px; fill: none; stroke: var(--sage);
+.card .ic svg { width: 20px; height: 20px; fill: none; stroke: var(--sage);
                 stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.card h3 { font-family: var(--sans); font-size: 1.02rem; font-weight: 600; color: var(--ink); }
-.card p { font-size: .95rem; color: var(--ink-2); margin: 0; }
-
-/* ============================================================
-   Ποια είμαι
-   ============================================================ */
-.about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3.5rem; align-items: start; }
-.portrait {
-  border-radius: 12px; overflow: hidden;
-  box-shadow: 0 20px 48px -26px rgba(93, 63, 73, .45);
-}
-.creds {
-  list-style: none; margin: 1.8rem 0 0; padding: 1.5rem 0 0;
-  border-top: 1px solid var(--rule);
-}
-.creds li {
-  position: relative; padding-left: 1.4rem; margin-bottom: .7rem;
-  font-size: .96rem; color: var(--ink-2);
-}
-.creds li:last-child { margin-bottom: 0; }
-.creds li::before {
-  content: ''; position: absolute; left: 0; top: .62em;
-  width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
-}
-.creds b { color: var(--ink); font-weight: 600; }
-
-/* ============================================================
-   Απόσπασμα
-   ============================================================ */
-.quote {
-  text-align: center; max-width: 32rem; margin: 0 auto;
-}
-.quote p {
-  font-family: var(--serif); font-size: clamp(1.6rem, 3.4vw, 2.15rem);
-  line-height: 1.35; color: var(--plum-deep); font-style: italic;
-}
-.quote .attr {
-  font-family: var(--sans); font-size: .78rem; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--ink-3); font-style: normal;
-}
+.card h3 { font-size: 1.01rem; }
+.card p { font-size: .94rem; color: var(--ink-2); margin: 0; }
 
 /* ============================================================
    Υπηρεσίες
    ============================================================ */
-.services { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.services { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
 .service {
   background: var(--surface); border: 1px solid var(--rule-soft);
-  border-radius: 12px; padding: 2rem 1.9rem;
+  border-radius: 14px; padding: 2rem 1.9rem;
 }
 .service .num {
-  font-family: var(--serif); font-size: 1.6rem; color: var(--blush);
-  line-height: 1; margin-bottom: .6rem;
+  display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+  color: var(--sage); background: var(--sage-soft);
+  padding: .2rem .6rem; border-radius: 6px; margin-bottom: .9rem;
 }
 .service h3 { margin-bottom: .5rem; }
-.service p { font-size: .97rem; margin: 0; }
+.service p { font-size: .96rem; margin: 0; }
 .service .who {
   display: block; margin-top: .9rem; padding-top: .9rem;
-  border-top: 1px solid var(--rule-soft);
-  font-size: .87rem; color: var(--ink-3);
+  border-top: 1px solid var(--rule-soft); font-size: .86rem; color: var(--ink-3);
 }
 
 /* Δια ζώσης / διαδικτυακά */
 .online {
-  display: flex; gap: 1.6rem; align-items: flex-start; margin-top: 1.4rem;
+  display: flex; gap: 1.6rem; align-items: flex-start; margin-top: 1.3rem;
   background: var(--surface); border: 1px solid var(--rule-soft);
-  border-left: 3px solid var(--sage); border-radius: 12px; padding: 1.9rem;
+  border-left: 4px solid var(--sage); border-radius: 14px; padding: 1.9rem;
 }
 .online-ic {
-  width: 44px; height: 44px; border-radius: 11px; flex: none;
+  width: 46px; height: 46px; border-radius: 12px; flex: none;
   display: grid; place-items: center; background: var(--sage-soft);
 }
 .online-ic svg { width: 22px; height: 22px; fill: none; stroke: var(--sage);
                  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .online h3 { margin-bottom: .4rem; }
-.online p { font-size: .97rem; margin: 0; max-width: 44rem; }
-.online b { color: var(--ink); font-weight: 600; }
+.online p { font-size: .96rem; margin: 0; max-width: 44rem; }
+.online b { color: var(--ink); font-weight: 700; }
 @media (max-width: 700px) { .online { flex-direction: column; gap: 1rem; padding: 1.6rem; } }
 
 /* ============================================================
    Βήματα
    ============================================================ */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; counter-reset: s; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4rem; counter-reset: s; }
 .step { counter-increment: s; }
 .step::before {
   content: counter(s); display: grid; place-items: center;
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--plum-soft); color: var(--plum);
-  font-family: var(--serif); font-size: 1.25rem; margin-bottom: 1rem;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--sage); color: #fff;
+  font-size: 1.02rem; font-weight: 700; margin-bottom: 1rem;
 }
-.step h3 { font-family: var(--sans); font-size: 1.02rem; font-weight: 600; }
-.step p { font-size: .95rem; margin: 0; }
+.step h3 { font-size: 1.01rem; }
+.step p { font-size: .94rem; margin: 0; }
 
 /* ============================================================
-   Accordion (FAQ + βιογραφικό)
+   Accordion
    ============================================================ */
-details {
-  border-bottom: 1px solid var(--rule); padding: 1.15rem 0;
-}
+details { border-bottom: 1px solid var(--rule); padding: 1.15rem 0; }
 details:first-of-type { border-top: 1px solid var(--rule); }
 summary {
   cursor: pointer; list-style: none; display: flex; align-items: flex-start;
   justify-content: space-between; gap: 1.5rem;
-  font-size: 1.03rem; font-weight: 500; color: var(--ink);
+  font-size: 1.01rem; font-weight: 600; color: var(--ink);
 }
 summary::-webkit-details-marker { display: none; }
 summary::after {
-  content: '+'; flex: none; font-size: 1.3rem; line-height: 1; color: var(--plum);
-  transition: transform .25s; font-weight: 300;
+  content: '+'; flex: none; font-size: 1.35rem; line-height: 1; color: var(--sage);
+  transition: transform .25s; font-weight: 400;
 }
 details[open] summary::after { transform: rotate(45deg); }
-details > div { padding-top: .85rem; max-width: var(--measure); font-size: .98rem; }
+details > div { padding-top: .85rem; max-width: var(--measure); font-size: .97rem; }
 details > div p { margin-bottom: .8rem; }
+details b { color: var(--ink); font-weight: 700; }
 
 /* ============================================================
    Επικοινωνία
    ============================================================ */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 4rem; align-items: start; }
-.contact-list { list-style: none; margin: 2rem 0 0; padding: 0; }
-.contact-list li { display: flex; gap: .9rem; margin-bottom: 1.4rem; align-items: flex-start; }
-.contact-list svg {
-  width: 20px; height: 20px; flex: none; margin-top: .2rem;
-  fill: none; stroke: var(--plum); stroke-width: 1.5;
-  stroke-linecap: round; stroke-linejoin: round;
-}
-.contact-list .k {
-  display: block; font-size: .76rem; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--ink-3); margin-bottom: .1rem;
-}
-.contact-list a { text-decoration: none; font-size: 1.02rem; }
-.contact-list a:hover { text-decoration: underline; }
-
-.ways {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem;
-  max-width: 54rem; margin: 0 auto;
-}
+.ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; max-width: 54rem; margin: 0 auto; }
 .way {
   display: block; text-align: center; text-decoration: none;
   background: var(--surface); border: 1px solid var(--rule-soft);
-  border-radius: 14px; padding: 2rem 1.4rem;
+  border-radius: 16px; padding: 2rem 1.4rem;
   transition: border-color .2s, transform .2s, box-shadow .2s;
 }
 .way:hover {
-  border-color: var(--blush); transform: translateY(-3px);
-  box-shadow: 0 14px 34px -22px rgba(93, 63, 73, .45);
+  border-color: var(--sage); transform: translateY(-3px);
+  box-shadow: 0 16px 36px -24px rgba(60, 86, 68, .5);
 }
 .way-ic {
-  width: 46px; height: 46px; border-radius: 50%; margin: 0 auto .9rem;
-  display: grid; place-items: center; background: var(--plum-soft);
+  width: 48px; height: 48px; border-radius: 50%; margin: 0 auto .9rem;
+  display: grid; place-items: center; background: var(--sage-soft);
 }
-.way-ic svg { width: 21px; height: 21px; fill: none; stroke: var(--plum);
-              stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.way-k {
-  display: block; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--ink-3); margin-bottom: .3rem;
-}
-.way-v { display: block; font-size: 1.03rem; color: var(--plum); font-weight: 500; word-break: break-word; }
-.way:hover .way-v { color: var(--plum-deep); }
+.way-ic svg { width: 21px; height: 21px; fill: none; stroke: var(--sage);
+              stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.way-k { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+         text-transform: uppercase; color: var(--ink-3); margin-bottom: .3rem; }
+.way-v { display: block; font-size: 1.01rem; color: var(--ink); font-weight: 600; word-break: break-word; }
+.way:hover .way-v { color: var(--sage-deep); }
 
 .place-line {
   display: flex; align-items: center; justify-content: center; gap: .6rem;
-  margin: 2.2rem auto 0; font-size: .97rem; color: var(--ink-2); text-align: center;
+  margin: 2.2rem auto 0; font-size: .96rem; color: var(--ink-2); text-align: center;
 }
 .place-line svg { width: 19px; height: 19px; flex: none; fill: none; stroke: var(--sage);
-                  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.place-line b { color: var(--ink); font-weight: 600; }
+                  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.place-line b { color: var(--ink); font-weight: 700; }
 
-.privacy-note {
-  max-width: 40rem; margin: 1.6rem auto 0; text-align: center;
-  font-size: .92rem; color: var(--ink-3);
-}
-
-.note {
-  background: var(--plum-soft); border-radius: 10px; padding: 1.3rem 1.5rem;
-  font-size: .93rem; color: var(--ink-2); max-width: var(--measure);
-}
-.note b { color: var(--ink); }
+.privacy-note { max-width: 40rem; margin: 1.6rem auto 0; text-align: center;
+                font-size: .91rem; color: var(--ink-3); }
 
 /* ============================================================
    Footer
    ============================================================ */
 footer {
-  background: var(--cream-2); border-top: 1px solid var(--rule);
+  background: var(--sage-band); border-top: 1px solid var(--rule);
   padding: 3rem 0 2.5rem; font-size: .87rem; color: var(--ink-3);
 }
 .foot-in { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; align-items: center; }
 .foot-brand { display: flex; align-items: center; gap: 1.1rem; }
-.foot-brand img { width: 84px; height: auto; flex: none; opacity: .9; }
-@media (max-width: 640px) { .foot-in { flex-direction: column; align-items: flex-start; }
-  .foot-in > div:last-child { text-align: left !important; } }
+.foot-brand img { width: 84px; height: auto; flex: none; opacity: .92; }
 footer a { color: var(--ink-2); text-decoration: none; }
-footer a:hover { color: var(--plum); text-decoration: underline; }
+footer a:hover { color: var(--sage-deep); text-decoration: underline; }
 .foot-ig { display: inline-flex; align-items: center; gap: .45rem; }
 .foot-ig svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 
@@ -405,18 +395,21 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
    Responsive
    ============================================================ */
 @media (max-width: 900px) {
-  .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .ways { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+  .portrait { max-width: 300px; }
   .cards, .steps { grid-template-columns: 1fr; gap: 1rem; }
-  .services { grid-template-columns: 1fr; }
-  .portrait { max-width: 280px; }
-  .hero-art { order: -1; max-width: 420px; }
+  .services, .ways { grid-template-columns: 1fr; }
   section { padding: 4rem 0; }
   .wrap, .nav-in { padding: 0 1.4rem; }
+  .foot-in { flex-direction: column; align-items: flex-start; }
+  .foot-in > div:last-child { text-align: left !important; }
 }
+@media (max-width: 620px) { .nav-brand span { display: none; } }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  * { transition: none !important; }
+  .reveal, .stagger > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+  * { transition-duration: .01ms !important; }
 }
 </style>
 </head>
@@ -443,88 +436,23 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
 
 <main id="main">
 
-  <!-- ============================ HERO ============================ -->
+  <!-- ============================ ΠΟΙΑ ΕΙΜΑΙ ============================ -->
   <section class="hero" id="top">
     <div class="wrap hero-grid">
-      <div>
-        <div class="sub">Ψυχολόγος · Συστημική Ψυχοθεραπεύτρια</div>
-        <h1>Ας μιλήσουμε για όσα σας δυσκολεύουν.</h1>
-        <div class="place">Θεσσαλονίκη</div>
-        <p class="lead">Δεν χρειάζεται να ξέρετε από πού να ξεκινήσετε ή πώς να το ονομάσετε.
-        Αρκεί να υπάρχει κάτι που σας απασχολεί και η διάθεση να το κοιτάξουμε μαζί.</p>
-        <div class="btn-row">
-          <a href="#contact" class="btn btn-primary">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6 9-6"/></svg>
-            Επικοινωνήστε μαζί μου
-          </a>
-          <a href="tel:+306978721941" class="btn btn-ghost">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z"/></svg>
-            697 872 1941
-          </a>
-        </div>
-      </div>
-      <div class="hero-art">
-        <img src="./illustration.jpg" alt="Εικονογράφηση: η αλλαγή δεν συμβαίνει γραμμικά" width="1200" height="872">
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ ΔΥΣΚΟΛΙΕΣ ============================ -->
-  <section class="band" id="difficulties">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Τι με φέρνει εδώ;</div>
-        <h2>Κάποιες από τις δυσκολίες που συναντάμε συχνά</h2>
-        <p>Δεν χρειάζεται να ταιριάζετε ακριβώς σε κάποια από αυτές. Είναι απλώς
-        αφορμές για να καταλάβετε αν αυτό που ζείτε χωράει σε μια συζήτηση.</p>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6c0 2.2 1 3.4 1.8 4.5.6.8.9 1.4.9 2.3h6.6c0-.9.3-1.5.9-2.3C17 12.4 18 11.2 18 9a6 6 0 0 0-6-6z"/><path d="M9.7 19h4.6"/></svg></div>
-          <h3>Άγχος και πίεση</h3>
-          <p>Επίμονη ανησυχία, δυσκολία στον ύπνο, η αίσθηση ότι δεν προλαβαίνετε ή ότι δεν είστε αρκετοί.</p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="9" r="3.2"/><circle cx="15.5" cy="9" r="3.2"/><path d="M3.5 19.5c.6-3 2.5-4.6 5-4.6M20.5 19.5c-.6-3-2.5-4.6-5-4.6"/></svg></div>
-          <h3>Σχέσεις και ζευγάρι</h3>
-          <p>Επαναλαμβανόμενοι καβγάδες, απόσταση, αποφάσεις που μένουν ανοιχτές, εμπιστοσύνη που δοκιμάζεται.</p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10l8-5.5 8 5.5v10"/><path d="M9.5 20v-5h5v5"/></svg></div>
-          <h3>Οικογένεια και γονεϊκότητα</h3>
-          <p>Εντάσεις στο σπίτι, όρια, χωρισμός, αναδοχή και υιοθεσία, αλλαγές στη σύνθεση της οικογένειας.</p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l8.5 4.3L12 12 3.5 7.8 12 3.5z"/><path d="M7 10v4.5c0 1.5 2.2 2.6 5 2.6s5-1.1 5-2.6V10"/></svg></div>
-          <h3>Παιδιά και εφηβεία</h3>
-          <p>Δυσκολίες στο σχολείο, συμπεριφορά που ανησυχεί, απομόνωση, ένταση στην επικοινωνία με τον έφηβο.</p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c3-8 6-8 9 0s6 4 9-4"/></svg></div>
-          <h3>Μεταβάσεις και απώλειες</h3>
-          <p>Πένθος, χωρισμός, μετακόμιση, αλλαγή δουλειάς — περίοδοι όπου τα παλιά δεδομένα δεν ισχύουν πια.</p>
-        </article>
-        <article class="card">
-          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v4.5l3 2"/></svg></div>
-          <h3>Η αίσθηση ότι κάτι δεν πάει καλά</h3>
-          <p>Χωρίς συγκεκριμένη αιτία. Κούραση, κενό, απώλεια ενδιαφέροντος για πράγματα που κάποτε μετρούσαν.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================ ΠΟΙΑ ΕΙΜΑΙ ============================ -->
-  <section id="about">
-    <div class="wrap about-grid">
-      <div class="portrait">
+      <div class="portrait reveal">
         <img src="./katerina.jpg" alt="Αικατερίνη Λαζαρίδου" width="880" height="1100">
       </div>
-      <div>
-        <div class="eyebrow">Ποια είμαι</div>
-        <h2>Αικατερίνη Λαζαρίδου</h2>
-        <div class="measure" style="margin-top:1.2rem">
-          <p>Είμαι ψυχολόγος και εκπαιδευμένη στη συστημική ψυχοθεραπεία. Ζω και εργάζομαι
-          στη Θεσσαλονίκη.</p>
+      <div id="about">
+        <div class="reveal">
+          <div class="eyebrow">Ποια είμαι</div>
+          <h1>Αικατερίνη Λαζαρίδου</h1>
+          <div class="role">Ψυχολόγος · Συστημική Ψυχοθεραπεύτρια</div>
+          <div class="place">Θεσσαλονίκη</div>
+        </div>
+
+        <div class="measure reveal">
+          <p class="lead">Είμαι ψυχολόγος και εκπαιδευμένη στη συστημική ψυχοθεραπεία.
+          Ζω και εργάζομαι στη Θεσσαλονίκη.</p>
 
           <p>Στη δουλειά μου με απασχολεί λιγότερο το τι «έχει» κάποιος και περισσότερο
           το πώς ζει: μέσα σε ποιες σχέσεις, ποιες υποχρεώσεις και ποιες ιστορίες που
@@ -541,38 +469,100 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
           υγεία των νέων στο University of Birmingham.</p>
         </div>
 
-        <ul class="creds">
+        <ul class="creds reveal">
           <li><b>Μεταπτυχιακό Κλινικής Ψυχολογίας &amp; Νευροψυχολογίας</b>, Τμήμα Ψυχολογίας, ΑΠΘ</li>
           <li><b>Πτυχίο Ψυχολογίας</b>, ΑΠΘ — με άδεια ασκήσεως επαγγέλματος</li>
           <li><b>Εκπαίδευση στη Συστημική Ψυχοθεραπεία</b>, Κέντρο Συστημικής Μελέτης και Θεραπείας</li>
         </ul>
 
-        <div class="btn-row">
+        <div class="btn-row reveal">
+          <a href="#contact" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6 9-6"/></svg>
+            Επικοινωνήστε μαζί μου
+          </a>
           <a href="./CV_Aikaterini_Lazaridou.pdf" class="btn btn-ghost" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v12"/><path d="M7.5 11.5L12 16l4.5-4.5"/><path d="M4.5 19.5h15"/></svg>
-            Αναλυτικό βιογραφικό (PDF)
+            Αναλυτικό βιογραφικό
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================ ΑΠΟΣΠΑΣΜΑ ============================ -->
-  <section class="band-soft" style="padding:4.5rem 0">
-    <div class="wrap quote">
-      <p>«Η αλλαγή δεν συμβαίνει γραμμικά.»</p>
-      <div class="attr">therapy.voices</div>
+  <!-- ============================ Η ΑΛΛΑΓΗ ============================ -->
+  <section class="change band-sage" aria-labelledby="chg-h">
+    <div class="wrap change-wrap reveal">
+      <h2 id="chg-h" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Η αλλαγή δεν συμβαίνει γραμμικά</h2>
+      <svg class="change-art" xmlns="http://www.w3.org/2000/svg" viewBox="-26 -42 894 514" role="img"
+     aria-labelledby="chg-t" preserveAspectRatio="xMidYMid meet">
+  <title id="chg-t">Η αλλαγή δεν συμβαίνει γραμμικά</title>
+
+  <defs>
+    <!-- invisible baselines for the curved lettering -->
+    <path id="p1" d="M 92 352 C 116 262 160 214 236 200"/>
+    <path id="p2" d="M 372 386 C 436 458 578 458 648 382"/>
+    <path id="p3" d="M 556 112 C 590 58 700 58 738 118"/>
+  </defs>
+
+  <g fill="none" stroke="#7A5560" stroke-width="3.4"
+     stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- the path itself: rise, plateau, dip, climb, descent -->
+    <path d="M 66 404
+             C 112 404 128 262 198 256
+             C 268 250 300 256 350 268
+             C 400 280 400 318 440 322
+             C 478 326 500 306 528 268
+             C 566 214 570 116 644 116
+             C 718 116 720 252 768 312
+             C 796 348 822 366 848 376"/>
+
+    <!-- walker at the start, fully on the canvas -->
+    <circle cx="52" cy="372" r="9.5"/>
+    <path d="M 52 382 L 52 404"/>
+    <path d="M 52 388 L 40 397 M 52 388 L 64 396"/>
+    <path d="M 52 404 L 42 420 M 52 404 L 63 419"/>
+
+    <!-- figure under an umbrella at the low point -->
+    <circle cx="440" cy="288" r="9"/>
+    <path d="M 440 297 L 440 320"/>
+    <path d="M 440 303 L 428 313 M 440 302 L 452 292"/>
+    <path d="M 440 320 L 430 336 M 440 320 L 451 335"/>
+    <!-- umbrella -->
+    <path d="M 452 268 L 452 292"/>
+    <path d="M 452 292 q 6 8 12 2"/>
+    <path d="M 420 268 a 32 20 0 0 1 64 0 q -16 -9 -32 0 q -16 -9 -32 0 z"
+          stroke-linejoin="round"/>
+    <!-- rain -->
+    <g stroke-width="2.4" opacity=".78">
+      <path d="M 404 250 L 397 266"/>
+      <path d="M 418 236 L 411 252"/>
+      <path d="M 492 252 L 485 268"/>
+      <path d="M 478 234 L 471 250"/>
+      <path d="M 408 292 L 402 306"/>
+      <path d="M 492 288 L 486 302"/>
+    </g>
+  </g>
+
+  <g fill="#5C7A62" font-family="Commissioner, 'Helvetica Neue', Arial, sans-serif"
+     font-size="27" font-weight="600" letter-spacing="2.4">
+    <text><textPath href="#p1" startOffset="4%">Η ΑΛΛΑΓΗ</textPath></text>
+    <text><textPath href="#p2" startOffset="7%">ΔΕΝ ΣΥΜΒΑΙΝΕΙ</textPath></text>
+    <text><textPath href="#p3" startOffset="12%">ΓΡΑΜΜΙΚΑ</textPath></text>
+  </g>
+</svg>
+      <div class="change-cap">therapy.voices</div>
     </div>
   </section>
 
   <!-- ============================ ΠΡΟΣΕΓΓΙΣΗ ============================ -->
   <section id="approach">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">Η προσέγγισή μου</div>
         <h2>Τι σημαίνει συστημική ψυχοθεραπεία</h2>
       </div>
-      <div class="measure">
+      <div class="measure reveal">
         <p>Η συστημική προσέγγιση ξεκινά από μια απλή παραδοχή: κανείς δεν δυσκολεύεται
         στο κενό. Ό,τι ζούμε παίρνει νόημα μέσα στις σχέσεις μας — την οικογένεια,
         τον σύντροφο, τη δουλειά, την εποχή που μεγαλώσαμε.</p>
@@ -588,15 +578,14 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
       </div>
     </div>
   </section>
-
   <!-- ============================ ΥΠΗΡΕΣΙΕΣ ============================ -->
   <section class="band" id="services">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">Υπηρεσίες</div>
         <h2>Με ποιους δουλεύω</h2>
       </div>
-      <div class="services">
+      <div class="services stagger">
         <article class="service">
           <div class="num">01</div>
           <h3>Ατομική ψυχοθεραπεία ενηλίκων</h3>
@@ -634,7 +623,7 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
         </article>
       </div>
 
-      <div class="online">
+      <div class="online reveal">
         <div class="online-ic">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="13" height="13" rx="2.5"/><path d="M15.5 10.5l6-3.2v9.4l-6-3.2z"/></svg>
         </div>
@@ -649,15 +638,14 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
       </div>
     </div>
   </section>
-
   <!-- ============================ ΠΩΣ ΞΕΚΙΝΑΜΕ ============================ -->
   <section id="start">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">Πώς ξεκινάμε</div>
         <h2>Τα πρώτα βήματα, χωρίς δεσμεύσεις</h2>
       </div>
-      <div class="steps">
+      <div class="steps stagger">
         <div class="step">
           <h3>Ένα πρώτο μήνυμα</h3>
           <p>Μου γράφετε με e-mail ή από τη φόρμα. Δεν χρειάζεται να εξηγήσετε τίποτα
@@ -676,15 +664,14 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
       </div>
     </div>
   </section>
-
   <!-- ============================ ΕΡΩΤΗΣΕΙΣ ============================ -->
   <section class="band" id="faq">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow">Συχνές ερωτήσεις</div>
         <h2>Πράγματα που καλό είναι να ξέρετε</h2>
       </div>
-      <div style="max-width:44rem">
+      <div style="max-width:44rem" class="reveal">
 
         <details>
           <summary>Πόσο διαρκεί μια συνεδρία και κάθε πότε γίνεται;</summary>
@@ -744,7 +731,49 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
       </div>
     </div>
   </section>
-
+  <!-- ============================ ΔΥΣΚΟΛΙΕΣ ============================ -->
+  <section class="band" id="difficulties">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Ας μιλήσουμε</div>
+        <h2>Ας μιλήσουμε για όσα σας δυσκολεύουν</h2>
+        <p>Δεν χρειάζεται να ταιριάζετε ακριβώς σε κάποια από αυτές. Είναι απλώς
+        αφορμές για να καταλάβετε αν αυτό που ζείτε χωράει σε μια συζήτηση.</p>
+      </div>
+      <div class="cards stagger">
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6c0 2.2 1 3.4 1.8 4.5.6.8.9 1.4.9 2.3h6.6c0-.9.3-1.5.9-2.3C17 12.4 18 11.2 18 9a6 6 0 0 0-6-6z"/><path d="M9.7 19h4.6"/></svg></div>
+          <h3>Άγχος και πίεση</h3>
+          <p>Επίμονη ανησυχία, δυσκολία στον ύπνο, η αίσθηση ότι δεν προλαβαίνετε ή ότι δεν είστε αρκετοί.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="9" r="3.2"/><circle cx="15.5" cy="9" r="3.2"/><path d="M3.5 19.5c.6-3 2.5-4.6 5-4.6M20.5 19.5c-.6-3-2.5-4.6-5-4.6"/></svg></div>
+          <h3>Σχέσεις και ζευγάρι</h3>
+          <p>Επαναλαμβανόμενοι καβγάδες, απόσταση, αποφάσεις που μένουν ανοιχτές, εμπιστοσύνη που δοκιμάζεται.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10l8-5.5 8 5.5v10"/><path d="M9.5 20v-5h5v5"/></svg></div>
+          <h3>Οικογένεια και γονεϊκότητα</h3>
+          <p>Εντάσεις στο σπίτι, όρια, χωρισμός, αναδοχή και υιοθεσία, αλλαγές στη σύνθεση της οικογένειας.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l8.5 4.3L12 12 3.5 7.8 12 3.5z"/><path d="M7 10v4.5c0 1.5 2.2 2.6 5 2.6s5-1.1 5-2.6V10"/></svg></div>
+          <h3>Παιδιά και εφηβεία</h3>
+          <p>Δυσκολίες στο σχολείο, συμπεριφορά που ανησυχεί, απομόνωση, ένταση στην επικοινωνία με τον έφηβο.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c3-8 6-8 9 0s6 4 9-4"/></svg></div>
+          <h3>Μεταβάσεις και απώλειες</h3>
+          <p>Πένθος, χωρισμός, μετακόμιση, αλλαγή δουλειάς — περίοδοι όπου τα παλιά δεδομένα δεν ισχύουν πια.</p>
+        </article>
+        <article class="card">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v4.5l3 2"/></svg></div>
+          <h3>Η αίσθηση ότι κάτι δεν πάει καλά</h3>
+          <p>Χωρίς συγκεκριμένη αιτία. Κούραση, κενό, απώλεια ενδιαφέροντος για πράγματα που κάποτε μετρούσαν.</p>
+        </article>
+      </div>
+    </div>
+  </section>
   <!-- ============================ ΕΠΙΚΟΙΝΩΝΙΑ ============================ -->
   <section id="contact">
     <div class="wrap">
@@ -755,7 +784,7 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
         και τα υπόλοιπα τα βρίσκουμε από κοντά.</p>
       </div>
 
-      <div class="ways">
+      <div class="ways stagger">
         <a class="way" href="tel:+306978721941">
           <span class="way-ic">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5z"/></svg>
@@ -781,19 +810,18 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
         </a>
       </div>
 
-      <div class="place-line">
+      <div class="place-line reveal">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
         <span><b>Θεσσαλονίκη</b> — δια ζώσης συνεδρίες, ή διαδικτυακά μέσω Microsoft Teams</span>
       </div>
 
-      <p class="privacy-note">
+      <p class="privacy-note reveal">
         Στο πρώτο μήνυμα ή τηλεφώνημα δεν χρειάζεται να περιγράψετε τι σας συμβαίνει.
         Αρκεί το όνομά σας και ότι θα θέλατε μια πρώτη συνάντηση — τα υπόλοιπα τα λέμε
         στη συνεδρία, όπου προστατεύονται από το επαγγελματικό απόρρητο.
       </p>
     </div>
   </section>
-
 </main>
 
 <footer>
@@ -814,6 +842,24 @@ footer a:hover { color: var(--plum); text-decoration: underline; }
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal, .stagger');
+  if (!('IntersectionObserver' in window) || reduce) {
+    items.forEach(function (el) { el.classList.add('shown'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('shown'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 </body>
 </html>

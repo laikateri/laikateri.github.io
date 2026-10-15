@@ -396,7 +396,7 @@ section { padding: 5.5rem 0; }
 .change-wrap { max-width: 50rem; margin: 0 auto; }
 .change-art { width: 100%; height: auto; display: block; overflow: visible; }
 .change-art > g[stroke] { stroke: var(--plum); }
-.change-art > g[fill] { fill: var(--sage); }
+.change-art > g[font-family] { fill: var(--sage); }
 .change-cap {
   text-align: center; font-family: var(--serif); font-style: italic;
   font-size: .95rem; color: var(--ink-3); margin-top: 1.2rem;
@@ -407,7 +407,7 @@ section { padding: 5.5rem 0; }
 .js .change-art .figure,
 .js .change-art .words { opacity: 0; }
 /* Ιστορία με το scroll: ψηλή ενότητα, το σχέδιο μένει στη μέση της οθόνης */
-.change.scrolly { height: 260vh; padding: 0; }
+.change.scrolly { height: 170vh; padding: 0; }
 .change.scrolly .change-sticky {
   position: sticky; top: var(--nav-h); height: calc(100vh - var(--nav-h));
   display: grid; align-content: center;
@@ -670,24 +670,8 @@ html.opening-done .opening { display: none; }
 .visit-info .btn-row { margin-top: 1.4rem; gap: .6rem; }
 .visit-info .btn { padding: .65rem 1.2rem; font-size: .88rem; }
 .visit-map { position: relative; min-height: 340px; background: var(--sage-band); }
-.map-gate {
-  position: absolute; inset: 0; display: grid; place-content: center; justify-items: center;
-  text-align: center; padding: 1.6rem; gap: .2rem;
-  background:
-    repeating-linear-gradient(28deg, transparent 0 46px, rgba(var(--sage-rgb), .1) 46px 49px),
-    repeating-linear-gradient(-62deg, transparent 0 70px, rgba(var(--sage-rgb), .08) 70px 74px),
-    var(--sage-band);
-}
-.map-pin { width: 34px; height: 34px; fill: none; stroke: var(--plum); stroke-width: 1.6;
-           stroke-linecap: round; stroke-linejoin: round; margin-bottom: .3rem; }
-.map-addr { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin: 0 0 .9rem; }
-.map-gate .btn { background: var(--surface); }
-.map-note { font-size: .82rem; color: var(--ink-3); max-width: 19rem; margin: .9rem 0 .4rem; line-height: 1.5; }
-.map-remember { font-size: .82rem; color: var(--ink-2); display: inline-flex; gap: .4rem; align-items: center; cursor: pointer; }
-.map-remember input { accent-color: var(--sage); width: 16px; height: 16px; }
 .visit-map iframe {
   position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-  filter: grayscale(.55) sepia(.18) saturate(.9) contrast(.96);
 }
 button.btn { font-family: var(--sans); }
 @media (max-width: 760px) {
@@ -901,7 +885,7 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
   <defs>
     <!-- invisible baselines for the curved lettering -->
     <path id="p1" d="M 72 340 C 98 244 146 192 226 178"/>
-    <path id="p2" d="M 372 386 C 436 458 578 458 648 382"/>
+    <path id="p2" d="M 372 410 C 436 482 578 482 648 406"/>
     <path id="p3" d="M 548 90 C 584 30 704 30 746 96"/>
   </defs>
 
@@ -1281,16 +1265,9 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
             </button>
           </div>
         </div>
-        <!-- Ο χάρτης της Google φορτώνει μόνο όταν το ζητήσει ο επισκέπτης: μέχρι τότε, κανένα cookie -->
-        <div class="visit-map" data-map-src="https://www.google.com/maps?q=Vasileos+Irakleiou+14,+Thessaloniki+546+25,+Greece&amp;hl=el&amp;z=17&amp;output=embed">
-          <div class="map-gate">
-            <svg class="map-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            <p class="map-addr">Βασιλέως Ηρακλείου 14</p>
-            <button type="button" class="btn btn-ghost map-load">Εμφάνιση χάρτη</button>
-            <p class="map-note">Ο χάρτης φορτώνει από το Google Maps, που μπορεί να βάλει cookies.
-            <a href="./privacy.html">Περισσότερα</a></p>
-            <label class="map-remember"><input type="checkbox"> Να εμφανίζεται πάντα</label>
-          </div>
+        <div class="visit-map">
+          <iframe title="Χάρτης: Βασιλέως Ηρακλείου 14, Θεσσαλονίκη" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Vasileos+Irakleiou+14,+Thessaloniki+546+25,+Greece&amp;hl=el&amp;z=17&amp;output=embed"></iframe>
         </div>
       </div>
 
@@ -1417,28 +1394,6 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
     window.tvSetTheme(dark ? 'light' : 'dark');
   });
-
-  // ---- Χάρτης με κλικ: η Google φορτώνει μόνο όταν το ζητήσει ο επισκέπτης ----
-  var mapBox = document.querySelector('.visit-map');
-  if (mapBox) {
-    var loadMap = function () {
-      var f = document.createElement('iframe');
-      f.title = 'Χάρτης: Βασιλέως Ηρακλείου 14, Θεσσαλονίκη';
-      f.src = mapBox.getAttribute('data-map-src');
-      f.referrerPolicy = 'no-referrer-when-downgrade';
-      mapBox.innerHTML = '';
-      mapBox.appendChild(f);
-    };
-    var remembered = false;
-    try { remembered = localStorage.getItem('tv-map') === '1'; } catch (e) {}
-    if (remembered) loadMap();
-    else mapBox.querySelector('.map-load').addEventListener('click', function () {
-      if (mapBox.querySelector('.map-remember input').checked) {
-        try { localStorage.setItem('tv-map', '1'); } catch (e) {}
-      }
-      loadMap();
-    });
-  }
 
   // ---- Κράτηση ραντεβού: εμφανίζεται μόνο αν υπάρχει link ----
   var bookingMeta = document.querySelector('meta[name="booking-url"]');
@@ -1672,13 +1627,16 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
     var total = line.getTotalLength();
     chg.classList.add('scrolly');
 
+    var finished = false;   // αφού φτάσει μία φορά στο τέλος, δεν γυρίζει πίσω
     var story = function () {
       var r = chg.getBoundingClientRect();
       var span = r.height - innerHeight;
       var p = Math.min(Math.max(-r.top / (span || 1), 0), 1);
+      if (p >= .995) finished = true;
+      if (finished) p = 1;
       var f = .02 + p * .96;
       var pt = line.getPointAtLength(total * f);
-      var step = Math.abs(Math.sin(total * f / 9)) * 2;     // μικρό «βήμα» πάνω-κάτω
+      var step = finished ? 0 : Math.abs(Math.sin(total * f / 5)) * 2.5;     // πιο γρήγορα «βήματα»
       // στις απότομες κλίσεις η γραμμή θα περνούσε μέσα από το σώμα: το βάζουμε δίπλα της
       var a = line.getPointAtLength(total * Math.max(f - .004, 0)), b = line.getPointAtLength(total * Math.min(f + .004, 1));
       var steep = (a.y - b.y) / Math.max(b.x - a.x, .5);

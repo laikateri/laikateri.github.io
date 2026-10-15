@@ -36,6 +36,15 @@
   "name": "Αικατερίνη Λαζαρίδου",
   "description": "Ψυχολόγος και συστημική ψυχοθεραπεύτρια στη Θεσσαλονίκη.",
   "areaServed": "Θεσσαλονίκη",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Βασιλέως Ηρακλείου 14",
+    "postalCode": "546 25",
+    "addressLocality": "Θεσσαλονίκη",
+    "addressCountry": "GR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 40.63606, "longitude": 22.93923 },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Vasileos+Irakleiou+14,+Thessaloniki+546+25,+Greece",
   "email": "mailto:laikateri@gmail.com",
   "telephone": "+306978721941",
   "url": "https://laikateri.github.io/",
@@ -328,6 +337,15 @@ section { padding: 5.5rem 0; }
 }
 .js .change-art .figure,
 .js .change-art .words { opacity: 0; }
+/* Ιστορία με το scroll: ψηλή ενότητα, το σχέδιο μένει στη μέση της οθόνης */
+.change.scrolly { height: 260vh; padding: 0; }
+.change.scrolly .change-sticky {
+  position: sticky; top: var(--nav-h); height: calc(100vh - var(--nav-h));
+  display: grid; align-content: center;
+}
+.change.scrolly .change-wrap { width: 100%; }
+.change.scrolly .words { transition: opacity .6s ease; }
+.change.scrolly .figure { transition: opacity .3s ease; }
 .change-art.drawn .line {
   transition: stroke-dashoffset 2.6s cubic-bezier(.45,.05,.35,1);
   stroke-dashoffset: 0;
@@ -469,6 +487,45 @@ details b { color: var(--ink); font-weight: 700; }
                   stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .place-line b { color: var(--ink); font-weight: 700; }
 
+/* Το πράσινο ίχνος του κέρσορα, πάνω από όλα αλλά κάτω από το μενού */
+.trail { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 45; }
+.cursor-ring {
+  position: fixed; left: 0; top: 0; z-index: 46; pointer-events: none;
+  width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%;
+  border: 1.5px solid var(--sage); opacity: 0;
+  transition: opacity .25s, width .25s, height .25s, margin .25s, background-color .25s;
+}
+.cursor-ring.on { opacity: .55; }
+.cursor-ring.big {
+  width: 58px; height: 58px; margin: -29px 0 0 -29px;
+  background: rgba(79, 111, 88, .1); opacity: .8;
+}
+.magnetic { transition: transform .35s cubic-bezier(.2,.7,.2,1), background-color .2s, border-color .2s, color .2s; }
+
+/* Το γραφείο: στοιχεία αριστερά, χάρτης δεξιά */
+.visit {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  max-width: 54rem; margin: 2.4rem auto 0;
+  background: var(--surface); border: 1px solid var(--rule-soft); border-radius: 16px; overflow: hidden;
+}
+.visit-info { padding: 2rem 1.9rem; }
+.visit-info .way-ic { margin: 0 0 1rem; }
+.visit-info h3 { font-family: var(--serif); font-weight: 500; font-size: 1.35rem; margin-bottom: .5rem; }
+.visit-info address { font-style: normal; color: var(--ink); font-weight: 600; margin-bottom: .9rem; }
+.visit-info p { font-size: .94rem; }
+.visit-info .btn-row { margin-top: 1.4rem; gap: .6rem; }
+.visit-info .btn { padding: .65rem 1.2rem; font-size: .88rem; }
+.visit-map { position: relative; min-height: 340px; background: var(--sage-band); }
+.visit-map iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+  filter: grayscale(.55) sepia(.18) saturate(.9) contrast(.96);
+}
+button.btn { font-family: var(--sans); }
+@media (max-width: 760px) {
+  .visit { grid-template-columns: 1fr; }
+  .visit-map { min-height: 280px; }
+}
+
 .privacy-note { max-width: 40rem; margin: 1.6rem auto 0; text-align: center;
                 font-size: .93rem; color: var(--ink-3); }
 
@@ -522,7 +579,7 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
   .foot-in { flex-direction: column; align-items: flex-start; }
   .foot-side { text-align: left; }
 }
-@media (max-width: 620px) { .nav-brand span { display: none; } }
+@media (max-width: 1000px) { .nav-brand span { display: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -631,6 +688,7 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
 
   <!-- ============================ Η ΑΛΛΑΓΗ ============================ -->
   <section class="change band-sage" aria-labelledby="chg-h">
+    <div class="change-sticky">
     <div class="wrap change-wrap">
       <h2 id="chg-h" class="sr-only">Η αλλαγή δεν συμβαίνει γραμμικά</h2>
       <svg class="change-art" xmlns="http://www.w3.org/2000/svg" viewBox="-26 -42 894 514" role="img"
@@ -639,9 +697,9 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
 
   <defs>
     <!-- invisible baselines for the curved lettering -->
-    <path id="p1" d="M 92 352 C 116 262 160 214 236 200"/>
+    <path id="p1" d="M 72 340 C 98 244 146 192 226 178"/>
     <path id="p2" d="M 372 386 C 436 458 578 458 648 382"/>
-    <path id="p3" d="M 556 112 C 590 58 700 58 738 118"/>
+    <path id="p3" d="M 548 90 C 584 30 704 30 746 96"/>
   </defs>
 
   <g fill="none" stroke="#7A5560" stroke-width="3.4"
@@ -666,7 +724,7 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
     </g>
 
     <!-- figure under an umbrella at the low point -->
-    <g class="figure f2">
+    <g class="figure f2" transform="translate(0 -17)">
     <circle cx="440" cy="288" r="9"/>
     <path d="M 440 297 L 440 320"/>
     <path d="M 440 303 L 428 313 M 440 302 L 452 292"/>
@@ -696,6 +754,7 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
   </g>
 </svg>
       <p class="change-cap">από το therapy.voices</p>
+    </div>
     </div>
   </section>
 
@@ -767,7 +826,8 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
         </div>
         <div>
           <h3>Δια ζώσης ή διαδικτυακά</h3>
-          <p>Οι συνεδρίες γίνονται από κοντά στη Θεσσαλονίκη ή διαδικτυακά μέσω
+          <p>Οι συνεδρίες γίνονται από κοντά, στο γραφείο στη
+          <a href="#office">Βασιλέως Ηρακλείου 14</a> στη Θεσσαλονίκη, ή διαδικτυακά μέσω
           <b>Microsoft Teams</b>. Η διαδικτυακή συνεδρία έχει την ίδια διάρκεια και την ίδια
           εμπιστευτικότητα με τη δια ζώσης — χρειάζεται μόνο ένας ήσυχος χώρος και μια
           σταθερή σύνδεση. Είναι λύση για όσους μένουν μακριά, ταξιδεύουν ή δυσκολεύονται
@@ -848,6 +908,12 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
           τρόπο να σας βρω. Απαντώ συνήθως μέσα σε λίγες μέρες. Στο πρώτο μήνυμα δεν
           χρειάζεται —και καλύτερα να μην— γράψετε προσωπικές λεπτομέρειες· αυτά τα λέμε
           από κοντά.</p></div>
+        </details>
+
+        <details>
+          <summary>Πού βρίσκεται το γραφείο;</summary>
+          <div><p>Στη <b>Βασιλέως Ηρακλείου 14</b>, στο κέντρο της Θεσσαλονίκης.
+          Θα βρείτε <a href="#office">χάρτη και οδηγίες</a> πιο κάτω, στην Επικοινωνία.</p></div>
         </details>
 
         <details>
@@ -956,9 +1022,31 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
         </a>
       </div>
 
-      <div class="place-line">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
-        <span><b>Θεσσαλονίκη</b> — δια ζώσης συνεδρίες, ή διαδικτυακά μέσω Microsoft Teams</span>
+      <!-- Το γραφείο. Χάρτης Google Maps με αναζήτηση της ακριβούς διεύθυνσης -->
+      <div class="visit" id="office">
+        <div class="visit-info">
+          <span class="way-ic">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          </span>
+          <h3>Το γραφείο</h3>
+          <address>Βασιλέως Ηρακλείου 14<br>546 25 Θεσσαλονίκη</address>
+          <p>Στο κέντρο της πόλης, ανάμεσα στην Εγνατία και την Ερμού. Οι συνεδρίες γίνονται
+          εδώ ή διαδικτυακά μέσω Microsoft Teams.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Vasileos+Irakleiou+14,+Thessaloniki+546+25,+Greece" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11.5l17-7.5-7.5 17-2-7.5z"/></svg>
+              Οδηγίες
+            </a>
+            <button type="button" class="btn btn-ghost" data-copy="Βασιλέως Ηρακλείου 14, 546 25 Θεσσαλονίκη">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2"/><path d="M15.5 8.5v-2a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></svg>
+              <span>Αντιγραφή διεύθυνσης</span>
+            </button>
+          </div>
+        </div>
+        <div class="visit-map">
+          <iframe title="Χάρτης: Βασιλέως Ηρακλείου 14, Θεσσαλονίκη" loading="lazy"
+            src="https://www.google.com/maps?q=Vasileos+Irakleiou+14,+Thessaloniki+546+25,+Greece&amp;hl=el&amp;z=17&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
 
       <p class="privacy-note">
@@ -976,7 +1064,7 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
       <img src="./logo.png" alt="therapy voices" width="760" height="663" loading="lazy" decoding="async">
       <div>
         <div class="foot-name">Αικατερίνη Λαζαρίδου — Ψυχολόγος, Συστημική Ψυχοθεραπεύτρια</div>
-        <div>Θεσσαλονίκη · <a href="tel:+306978721941">+30 697 872 1941</a> · <a href="mailto:laikateri@gmail.com">laikateri@gmail.com</a></div>
+        <div><a href="#office">Βασιλέως Ηρακλείου 14, Θεσσαλονίκη</a> · <a href="tel:+306978721941">+30 697 872 1941</a> · <a href="mailto:laikateri@gmail.com">laikateri@gmail.com</a></div>
       </div>
     </div>
     <div class="foot-side">
@@ -1027,15 +1115,156 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
     portrait.addEventListener('pointerleave', function () { portrait.style.transform = ''; });
   }
 
+  // Πράσινο ίχνος πίσω από τον κέρσορα: μια γραμμή που σβήνει και μικρά φύλλα που πέφτουν
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var cv = document.createElement('canvas');
+    cv.className = 'trail';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var pts = [], leaves = [], raf = 0, travel = 0, LIFE = 650;
+
+    var size = function () {
+      cv.width = innerWidth * dpr; cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    size();
+    addEventListener('resize', size);
+
+    addEventListener('pointermove', function (e) {
+      var now = performance.now(), last = pts[pts.length - 1];
+      if (last) {
+        var d = Math.hypot(e.clientX - last.x, e.clientY - last.y);
+        if (d < 2) return;
+        travel += d;
+        if (travel > 90) {
+          travel = 0;
+          leaves.push({ x: e.clientX, y: e.clientY, t: now, r: Math.random() * 6.28,
+                        vx: (Math.random() - .5) * .4, spin: (Math.random() - .5) * .006 });
+        }
+      }
+      pts.push({ x: e.clientX, y: e.clientY, t: now });
+      if (!raf) raf = requestAnimationFrame(draw);
+    }, { passive: true });
+
+    var leaf = function (l, k, now) {
+      var age = now - l.t;
+      ctx.save();
+      ctx.translate(l.x + l.vx * age * .06, l.y + age * .035);
+      ctx.rotate(l.r + l.spin * age);
+      ctx.globalAlpha = k * .7;
+      ctx.fillStyle = '#4F6F58';
+      ctx.beginPath();
+      ctx.moveTo(-6, 0);
+      ctx.quadraticCurveTo(0, -4.5, 6, 0);
+      ctx.quadraticCurveTo(0, 4.5, -6, 0);
+      ctx.fill();
+      ctx.restore();
+    };
+
+    var draw = function (now) {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      while (pts.length && now - pts[0].t > LIFE) pts.shift();
+      leaves = leaves.filter(function (l) { return now - l.t < 1300; });
+
+      ctx.lineCap = 'round';
+      for (var i = 1; i < pts.length - 1; i++) {
+        var a = pts[i - 1], b = pts[i], c = pts[i + 1];
+        var k = 1 - (now - b.t) / LIFE;
+        ctx.strokeStyle = 'rgba(79, 111, 88, ' + (k * .55) + ')';
+        ctx.lineWidth = 1 + k * 3.5;
+        ctx.beginPath();
+        ctx.moveTo((a.x + b.x) / 2, (a.y + b.y) / 2);
+        ctx.quadraticCurveTo(b.x, b.y, (b.x + c.x) / 2, (b.y + c.y) / 2);
+        ctx.stroke();
+      }
+      leaves.forEach(function (l) { leaf(l, 1 - (now - l.t) / 1300, now); });
+
+      raf = (pts.length || leaves.length) ? requestAnimationFrame(draw) : 0;
+    };
+
+    // Πράσινος δακτύλιος που ακολουθεί τον κέρσορα και μεγαλώνει πάνω σε συνδέσμους
+    var ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    ring.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(ring);
+    var rx = -100, ry = -100, tx = -100, ty = -100, ringRaf = 0;
+    var follow = function () {
+      rx += (tx - rx) * .2; ry += (ty - ry) * .2;
+      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+      ringRaf = (Math.abs(tx - rx) + Math.abs(ty - ry) > .3) ? requestAnimationFrame(follow) : 0;
+    };
+    addEventListener('pointermove', function (e) {
+      tx = e.clientX; ty = e.clientY;
+      ring.classList.add('on');
+      ring.classList.toggle('big', !!e.target.closest('a, button, summary, .threads'));
+      if (!ringRaf) ringRaf = requestAnimationFrame(follow);
+    }, { passive: true });
+    document.addEventListener('pointerleave', function () { ring.classList.remove('on'); });
+
+    // Μαγνητικά κουμπιά: τραβιούνται λίγο προς τον κέρσορα
+    document.querySelectorAll('.btn, .nav-cta').forEach(function (b) {
+      b.classList.add('magnetic');
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        b.style.transform = 'translate(' + dx * .18 + 'px,' + dy * .3 + 'px)';
+      });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+  }
+
+  // Αντιγραφή διεύθυνσης με επιβεβαίωση στο ίδιο το κουμπί
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    var label = btn.querySelector('span'), text = label.textContent;
+    label.setAttribute('aria-live', 'polite');
+    btn.addEventListener('click', function () {
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(btn.getAttribute('data-copy')).then(function () {
+        label.textContent = 'Αντιγράφηκε';
+        setTimeout(function () { label.textContent = text; }, 2000);
+      });
+    });
+  });
+
   if (!('IntersectionObserver' in window)) return;
 
-  // Η γραμμή της αλλαγής σχεδιάζεται μία φορά, όταν φανεί
+  // Η γραμμή της αλλαγής ως ιστορία με το scroll: η ενότητα μένει καρφωμένη στην οθόνη,
+  // το ανθρωπάκι περπατά πάνω στη γραμμή, ανοίγει ομπρέλα στη βροχή και φτάνει στην κορυφή
   var art = document.querySelector('.change-art');
-  if (art) {
-    var drawIO = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) { art.classList.add('drawn'); drawIO.disconnect(); }
-    }, { threshold: 0.35 });
-    drawIO.observe(art);
+  var chg = document.querySelector('.change');
+  if (art && chg && !reduce) {
+    var line = art.querySelector('.line');
+    var walker = art.querySelector('.f1'), rainy = art.querySelector('.f2');
+    var words = [[art.querySelector('.w1'), .06], [art.querySelector('.w2'), .42], [art.querySelector('.w3'), .66]];
+    var total = line.getTotalLength();
+    chg.classList.add('scrolly');
+
+    var story = function () {
+      var r = chg.getBoundingClientRect();
+      var span = r.height - innerHeight;
+      var p = Math.min(Math.max(-r.top / (span || 1), 0), 1);
+      var f = .02 + p * .96;
+      var pt = line.getPointAtLength(total * f);
+      var step = Math.abs(Math.sin(total * f / 9)) * 2;     // μικρό «βήμα» πάνω-κάτω
+      // στις απότομες κλίσεις η γραμμή θα περνούσε μέσα από το σώμα: το βάζουμε δίπλα της
+      var a = line.getPointAtLength(total * Math.max(f - .004, 0)), b = line.getPointAtLength(total * Math.min(f + .004, 1));
+      var steep = (a.y - b.y) / Math.max(b.x - a.x, .5);
+      var side = -Math.sign(steep) * Math.min(Math.max(Math.abs(steep) - .35, 0) * 14, 16);
+      pt = { x: pt.x + side, y: pt.y };
+
+      line.style.strokeDashoffset = 1 - f;
+      // στη βουτιά βρέχει: εκεί το ανθρωπάκι κρατά ομπρέλα
+      var wet = Math.max(0, 1 - Math.abs(pt.x - 440) / 70);
+      walker.setAttribute('transform', 'translate(' + pt.x + ' ' + (pt.y - step) + ') scale(.82) translate(-52 -420)');
+      rainy.setAttribute('transform', 'translate(' + pt.x + ' ' + (pt.y - step) + ') scale(.82) translate(-440 -337)');
+      walker.style.opacity = 1 - Math.min(wet * 2, 1);
+      rainy.style.opacity = Math.min(wet * 2, 1);
+      words.forEach(function (w) { w[0].style.opacity = f > w[1] ? 1 : 0; });
+    };
+    addEventListener('scroll', function () { requestAnimationFrame(story); }, { passive: true });
+    addEventListener('resize', story);
+    story();
   }
 
   // Η μπάρα του κινητού κρύβεται όταν η Επικοινωνία είναι ήδη στην οθόνη
@@ -1107,7 +1336,10 @@ try {
 
   // Ένας άνθρωπος όπως στο λογότυπο (συντεταγμένες της εικόνας 760×663)
   function person(side, color) {
-    const mat = new THREE.MeshStandardMaterial({ color, roughness: 0.45, metalness: 0.04 });
+    const mat = new THREE.MeshPhysicalMaterial({
+      color, roughness: 0.38, metalness: 0.02, clearcoat: 0.6, clearcoatRoughness: 0.35,
+      sheen: 0.5, sheenColor: 0xffffff,
+    });
     const mx = x => (side < 0 ? x : 760 - x);
     const cx = side < 0 ? 175 : 585;
     const P = (x, y) => V((mx(x) - cx) / 100, (330 - y) / 100);
@@ -1118,19 +1350,45 @@ try {
     stage.add(g);
 
     const head = new THREE.Group();
-    const hc = P(135, 150);
-    head.position.copy(hc);
+    head.position.copy(P(135, 150));
     g.add(head);
 
+    // Το χέρι κρέμεται από τον ώμο, για να μπορεί να χειρονομεί όταν μιλά
+    const shoulder = P(126, 258);
+    const arm = new THREE.Group();
+    arm.position.copy(shoulder);
+    g.add(arm);
+    const A = (x, y) => P(x, y).sub(shoulder);
+
     const strokes = [
-      { s: stroke(head, new Ring(V(0, 0), 0.64), mat, 0.05, 160), from: 0, to: 0.38 },
-      { s: stroke(g, path([P(108, 226), P(48, 295), P(14, 410), P(26, 530), P(70, 600), P(112, 648)]), mat), from: 0.18, to: 0.72 },
-      { s: stroke(g, path([P(126, 258), P(134, 320), P(160, 368), P(220, 408), P(262, 395), P(292, 330), P(300, 268), P(318, 250), P(338, 242)]), mat, 0.045), from: 0.45, to: 1 },
+      { s: stroke(head, new Ring(V(0, 0), 0.64), mat, 0.055, 160), from: 0, to: 0.36 },
+      { s: stroke(g, path([P(108, 226), P(50, 290), P(16, 400), P(22, 520), P(64, 596), P(112, 648)]), mat, 0.055), from: 0.16, to: 0.7 },
+      { s: stroke(arm, path([A(126, 258), A(132, 318), A(152, 366), A(205, 402), A(255, 393), A(284, 352), A(296, 302)]), mat, 0.046), from: 0.42, to: 1 },
     ];
+    // οι νότες ξεκινούν λίγο πάνω από την άκρη του χεριού
     const palm = new THREE.Object3D();
-    palm.position.copy(P(326, 236));
-    g.add(palm);
-    return { side, color, head, strokes, palm };
+    palm.position.copy(A(304, 268));
+    arm.add(palm);
+    return { side, color, g, head, arm, strokes, palm };
+  }
+
+  // Απαλή σκιά κάτω από τους δύο, για να «πατάνε» κάπου
+  {
+    const c = document.createElement('canvas');
+    c.width = c.height = 128;
+    const x = c.getContext('2d');
+    const grd = x.createRadialGradient(64, 64, 0, 64, 64, 64);
+    grd.addColorStop(0, 'rgba(70,52,58,0.26)');
+    grd.addColorStop(0.55, 'rgba(70,52,58,0.1)');
+    grd.addColorStop(1, 'rgba(70,52,58,0)');
+    x.fillStyle = grd;
+    x.fillRect(0, 0, 128, 128);
+    const shadow = new THREE.Mesh(
+      new THREE.PlaneGeometry(9, 1.1),
+      new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthWrite: false })
+    );
+    shadow.position.set(0, -3.3, -0.4);
+    stage.add(shadow);
   }
 
   const people = [person(-1, PLUM), person(1, SAGE)];
@@ -1268,8 +1526,14 @@ try {
         const talking = pp === speaker && inTurn < 1700;
         pp.head.position.y = pp.head.userData.y ?? (pp.head.userData.y = pp.head.position.y);
         pp.head.position.y += talking ? Math.abs(Math.sin(inTurn * 0.009)) * 0.06 : 0;
-        const lean = pp === speaker ? 0 : -pp.side * 0.07;
+        // όποιος ακούει γέρνει λίγο το κεφάλι προς τον άλλον
+        const lean = pp === speaker ? 0 : -pp.side * 0.08;
         pp.head.rotation.z += (lean - pp.head.rotation.z) * 0.05;
+        // όποιος μιλά σηκώνει λίγο το χέρι, σαν να εξηγεί
+        const lift = talking ? -pp.side * (0.07 + 0.05 * Math.sin(inTurn * 0.006)) : 0;
+        pp.arm.rotation.z += (lift - pp.arm.rotation.z) * 0.06;
+        const bow = pp === speaker ? -pp.side * 0.025 : 0;
+        pp.g.rotation.z += (bow - pp.g.rotation.z) * 0.04;
       });
     }
 
@@ -1279,6 +1543,8 @@ try {
     }
 
     if (!reduce) {
+      // ανάσα
+      people.forEach(pp => pp.g.scale.set(1, 1 + Math.sin(s * 0.0016 + pp.side) * 0.01, 1));
       tilt.x += (pointer.y * 0.2 - tilt.x) * 0.04;
       tilt.y += (pointer.x * 0.4 - tilt.y) * 0.04;
       world.rotation.x = 0.06 + tilt.x;

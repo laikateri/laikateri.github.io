@@ -10,8 +10,7 @@
 <link rel="icon" href="./favicon.ico" sizes="32x32">
 <link rel="icon" href="./favicon.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<meta name="theme-color" content="#FAF9F6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1B1719" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAF9F6">
 <link rel="canonical" href="https://laikateri.github.io/">
 
 <!-- ΚΡΑΤΗΣΗ ΡΑΝΤΕΒΟΥ: βάλε εδώ το link του Cal.com (π.χ. https://cal.com/katerina-lazaridou)
@@ -29,10 +28,11 @@
 <meta property="og:image:alt" content="Αικατερίνη Λαζαρίδου">
 <meta name="twitter:card" content="summary">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js" crossorigin>
+<!-- Γραμματοσειρές και three.js από το ίδιο το site: καμία επαφή με τρίτους κατά τη φόρτωση -->
+<link rel="stylesheet" href="./fonts/fonts.css">
+<link rel="preload" href="./fonts/literata-normal-greek.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./fonts/manrope-normal-greek.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="modulepreload" href="./vendor/three.module.min.js">
 
 <script type="application/ld+json">
 {
@@ -62,6 +62,23 @@
 (function () {
   var html = document.documentElement;
   if ('IntersectionObserver' in window) html.classList.add('js');
+  // Μέρα ή νύχτα: η επιλογή του επισκέπτη, αλλιώς ό,τι λέει η συσκευή
+  var mq = matchMedia('(prefers-color-scheme: dark)'), chosen = null;
+  try { chosen = localStorage.getItem('tv-theme'); } catch (e) {}
+  var apply = function (t) {
+    html.setAttribute('data-theme', t);
+    document.dispatchEvent(new CustomEvent('tv-theme', { detail: t }));
+  };
+  apply(chosen || (mq.matches ? 'dark' : 'light'));
+  mq.addEventListener('change', function (e) {
+    var c = null;
+    try { c = localStorage.getItem('tv-theme'); } catch (err) {}
+    if (!c) apply(e.matches ? 'dark' : 'light');
+  });
+  window.tvSetTheme = function (t) {
+    try { localStorage.setItem('tv-theme', t); } catch (e) {}
+    apply(t);
+  };
   // Το λογότυπο σχεδιάζεται μόνο στην πρώτη επίσκεψη
   try {
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !localStorage.getItem('tv-opened')) {
@@ -104,33 +121,34 @@
   color-scheme: light dark;
 }
 
-/* Νυχτερινή έκδοση: ανοίγει μόνη της όταν η συσκευή είναι σε σκοτεινή λειτουργία */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper:      #1B1719;
-    --band:       #241F21;
-    --sage-band:  #1E2420;
-    --surface:    #292326;
-    --ink:        #F2ECEA;
-    --ink-2:      #D3C8CC;
-    --ink-3:      #A99DA2;
-    --plum:       #D4A5B1;
-    --plum-deep:  #E6C3CC;
-    --sage:       #93B99E;
-    --sage-deep:  #A9CBB2;
-    --sage-soft:  rgba(147, 185, 158, 0.14);
-    --rule:       #3A3235;
-    --rule-soft:  #322B2E;
-    --on-sage:    #13201A;
-    --sage-rgb:   147, 185, 158;
-    --glow-1:     #2A2226;
-    --glow-2:     #1F2722;
-  }
-  .nav-brand img, .foot-brand img { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen !important; }
-  .visit-map iframe { filter: invert(.9) hue-rotate(180deg) saturate(.5) brightness(.95) !important; }
-  .portrait { box-shadow: 0 22px 50px -28px rgba(0, 0, 0, .8); }
-  .steps::before { filter: invert(1) hue-rotate(180deg) brightness(1.2); }
+/* Νυχτερινή έκδοση: ακολουθεί τη συσκευή, εκτός αν ο επισκέπτης διαλέξει με το κουμπί.
+   Το data-theme το βάζει το script στην αρχή της σελίδας, πριν ζωγραφιστεί οτιδήποτε */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper:      #1B1719;
+  --band:       #241F21;
+  --sage-band:  #1E2420;
+  --surface:    #292326;
+  --ink:        #F2ECEA;
+  --ink-2:      #D3C8CC;
+  --ink-3:      #A99DA2;
+  --plum:       #D4A5B1;
+  --plum-deep:  #E6C3CC;
+  --sage:       #93B99E;
+  --sage-deep:  #A9CBB2;
+  --sage-soft:  rgba(147, 185, 158, 0.14);
+  --rule:       #3A3235;
+  --rule-soft:  #322B2E;
+  --on-sage:    #13201A;
+  --sage-rgb:   147, 185, 158;
+  --glow-1:     #2A2226;
+  --glow-2:     #1F2722;
 }
+[data-theme="dark"] .nav-brand img, [data-theme="dark"] .foot-brand img { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen !important; }
+[data-theme="dark"] .visit-map iframe { filter: invert(.9) hue-rotate(180deg) saturate(.5) brightness(.95) !important; }
+[data-theme="dark"] .portrait { box-shadow: 0 22px 50px -28px rgba(0, 0, 0, .8); }
+[data-theme="dark"] .steps::before { filter: invert(1) hue-rotate(180deg) brightness(1.2); }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 18px); }
@@ -609,6 +627,20 @@ html.opening-done .opening { display: none; }
 .booking .btn { font-size: 1rem; padding: .95rem 1.8rem; }
 .booking p { font-size: .9rem; color: var(--ink-3); margin-top: .9rem; }
 
+/* Κουμπί μέρα / νύχτα στο μενού */
+.theme-toggle {
+  display: grid; place-items: center; width: 38px; height: 38px; padding: 0;
+  border-radius: 50%; border: 1.5px solid var(--rule); background: transparent;
+  color: var(--ink-2); cursor: pointer; transition: border-color .2s, color .2s, transform .4s;
+}
+.theme-toggle:hover { border-color: var(--sage); color: var(--sage); }
+.theme-toggle:active { transform: rotate(-30deg); }
+.theme-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7;
+                    stroke-linecap: round; stroke-linejoin: round; }
+.theme-toggle .sun { display: none; }
+[data-theme="dark"] .theme-toggle .sun { display: block; }
+[data-theme="dark"] .theme-toggle .moon { display: none; }
+
 /* Το πράσινο ίχνος του κέρσορα, πάνω από όλα αλλά κάτω από το μενού */
 .trail { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 45; }
 .cursor-ring {
@@ -638,6 +670,21 @@ html.opening-done .opening { display: none; }
 .visit-info .btn-row { margin-top: 1.4rem; gap: .6rem; }
 .visit-info .btn { padding: .65rem 1.2rem; font-size: .88rem; }
 .visit-map { position: relative; min-height: 340px; background: var(--sage-band); }
+.map-gate {
+  position: absolute; inset: 0; display: grid; place-content: center; justify-items: center;
+  text-align: center; padding: 1.6rem; gap: .2rem;
+  background:
+    repeating-linear-gradient(28deg, transparent 0 46px, rgba(var(--sage-rgb), .1) 46px 49px),
+    repeating-linear-gradient(-62deg, transparent 0 70px, rgba(var(--sage-rgb), .08) 70px 74px),
+    var(--sage-band);
+}
+.map-pin { width: 34px; height: 34px; fill: none; stroke: var(--plum); stroke-width: 1.6;
+           stroke-linecap: round; stroke-linejoin: round; margin-bottom: .3rem; }
+.map-addr { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin: 0 0 .9rem; }
+.map-gate .btn { background: var(--surface); }
+.map-note { font-size: .82rem; color: var(--ink-3); max-width: 19rem; margin: .9rem 0 .4rem; line-height: 1.5; }
+.map-remember { font-size: .82rem; color: var(--ink-2); display: inline-flex; gap: .4rem; align-items: center; cursor: pointer; }
+.map-remember input { accent-color: var(--sage); width: 16px; height: 16px; }
 .visit-map iframe {
   position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
   filter: grayscale(.55) sepia(.18) saturate(.9) contrast(.96);
@@ -757,6 +804,10 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
       <li><a href="#services">Υπηρεσίες</a></li>
       <li><a href="#start">Πώς ξεκινάμε</a></li>
       <li><a href="#faq">Ερωτήσεις</a></li>
+      <li><button type="button" class="theme-toggle" aria-pressed="false" aria-label="Νυχτερινή λειτουργία" title="Μέρα / νύχτα">
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>
+      </button></li>
       <li class="keep"><a href="#contact" class="nav-cta">Επικοινωνία</a></li>
     </ul>
   </div>
@@ -1230,9 +1281,16 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
             </button>
           </div>
         </div>
-        <div class="visit-map">
-          <iframe title="Χάρτης: Βασιλέως Ηρακλείου 14, Θεσσαλονίκη" loading="lazy"
-            src="https://www.google.com/maps?q=Vasileos+Irakleiou+14,+Thessaloniki+546+25,+Greece&amp;hl=el&amp;z=17&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- Ο χάρτης της Google φορτώνει μόνο όταν το ζητήσει ο επισκέπτης: μέχρι τότε, κανένα cookie -->
+        <div class="visit-map" data-map-src="https://www.google.com/maps?q=Vasileos+Irakleiou+14,+Thessaloniki+546+25,+Greece&amp;hl=el&amp;z=17&amp;output=embed">
+          <div class="map-gate">
+            <svg class="map-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <p class="map-addr">Βασιλέως Ηρακλείου 14</p>
+            <button type="button" class="btn btn-ghost map-load">Εμφάνιση χάρτη</button>
+            <p class="map-note">Ο χάρτης φορτώνει από το Google Maps, που μπορεί να βάλει cookies.
+            <a href="./privacy.html">Περισσότερα</a></p>
+            <label class="map-remember"><input type="checkbox"> Να εμφανίζεται πάντα</label>
+          </div>
         </div>
       </div>
 
@@ -1283,13 +1341,32 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
 
   // ---- Ήχος: απαλές νότες σαν πιάνο, φτιαγμένες στον browser, κλειστές από προεπιλογή ----
   var audio = null;
+  // Στο iPhone: ο ήχος ξεκλειδώνει μόνο μέσα σε πάτημα, και με τον διακόπτη σίγασης
+  // παίζει μόνο αν δηλωθεί ως «playback» (iOS 17+)
+  var unlock = function () {
+    try {
+      if (navigator.audioSession) navigator.audioSession.type = 'playback';
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      if (audio.state !== 'running') audio.resume();
+      var b = audio.createBuffer(1, 1, 22050), src = audio.createBufferSource();
+      src.buffer = b; src.connect(audio.destination); src.start(0);
+    } catch (e) {}
+  };
+  ['touchend', 'click', 'keydown'].forEach(function (ev) {
+    document.addEventListener(ev, function () { if (sound.on) unlock(); }, { passive: true, capture: true });
+  });
   var sound = window.tvSound = {
     on: false,
     play: function (freq, vol) {
       if (!sound.on) return;
       try {
-        audio = audio || new (window.AudioContext || window.webkitAudioContext)();
-        if (audio.state === 'suspended') audio.resume();
+        if (!audio) unlock();
+        // στο πρώτο πάτημα το iPhone χρειάζεται μια στιγμή να ξεκλειδώσει: η νότα περιμένει
+        if (audio.state !== 'running') {
+          var p = audio.resume();
+          if (p && p.then) p.then(function () { if (audio.state === 'running') sound.play(freq, vol); });
+          return;
+        }
         var t = audio.currentTime, out = audio.createGain(), lp = audio.createBiquadFilter();
         lp.type = 'lowpass'; lp.frequency.value = 2600;
         out.gain.setValueAtTime(0.0001, t);
@@ -1324,6 +1401,44 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
     });
   });
   try { if (localStorage.getItem('tv-sound') === '1') setSound(true); } catch (e) {}
+
+  // ---- Μέρα / νύχτα ----
+  var themeBtn = document.querySelector('.theme-toggle');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  var syncTheme = function () {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    themeBtn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    themeBtn.setAttribute('aria-label', dark ? 'Ημερήσια λειτουργία' : 'Νυχτερινή λειτουργία');
+    themeMeta.setAttribute('content', dark ? '#1B1719' : '#FAF9F6');
+  };
+  syncTheme();
+  document.addEventListener('tv-theme', syncTheme);
+  themeBtn.addEventListener('click', function () {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    window.tvSetTheme(dark ? 'light' : 'dark');
+  });
+
+  // ---- Χάρτης με κλικ: η Google φορτώνει μόνο όταν το ζητήσει ο επισκέπτης ----
+  var mapBox = document.querySelector('.visit-map');
+  if (mapBox) {
+    var loadMap = function () {
+      var f = document.createElement('iframe');
+      f.title = 'Χάρτης: Βασιλέως Ηρακλείου 14, Θεσσαλονίκη';
+      f.src = mapBox.getAttribute('data-map-src');
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      mapBox.innerHTML = '';
+      mapBox.appendChild(f);
+    };
+    var remembered = false;
+    try { remembered = localStorage.getItem('tv-map') === '1'; } catch (e) {}
+    if (remembered) loadMap();
+    else mapBox.querySelector('.map-load').addEventListener('click', function () {
+      if (mapBox.querySelector('.map-remember input').checked) {
+        try { localStorage.setItem('tv-map', '1'); } catch (e) {}
+      }
+      loadMap();
+    });
+  }
 
   // ---- Κράτηση ραντεβού: εμφανίζεται μόνο αν υπάρχει link ----
   var bookingMeta = document.querySelector('meta[name="booking-url"]');
@@ -1439,7 +1554,7 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
     var pts = [], leaves = [], raf = 0, travel = 0, LIFE = 650, rgb = '79, 111, 88';
     var readRgb = function () { rgb = getComputedStyle(document.documentElement).getPropertyValue('--sage-rgb').trim() || rgb; };
     readRgb();
-    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readRgb);
+    document.addEventListener('tv-theme', readRgb);
 
     var size = function () {
       cv.width = innerWidth * dpr; cv.height = innerHeight * dpr;
@@ -1603,7 +1718,7 @@ const canvas = document.querySelector('.threads');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 try {
-  const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js');
+  const THREE = await import('./vendor/three.module.min.js');
   const V = (x, y, z = 0) => new THREE.Vector3(x, y, z);
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -1627,8 +1742,8 @@ try {
   scene.add(world);
 
   // Χρώματα για μέρα και νύχτα
-  const darkMQ = matchMedia('(prefers-color-scheme: dark)');
-  const tone = () => darkMQ.matches ? [0xD4A5B1, 0x93B99E] : [0x7A5560, 0x4F6F58];
+  const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+  const tone = () => isDark() ? [0xD4A5B1, 0x93B99E] : [0x7A5560, 0x4F6F58];
   const [PLUM, SAGE] = tone();
   const path = (pts, closed = false) => new THREE.CatmullRomCurve3(pts, closed, 'centripetal');
 
@@ -1698,7 +1813,7 @@ try {
     c.width = c.height = 128;
     const x = c.getContext('2d');
     const grd = x.createRadialGradient(64, 64, 0, 64, 64, 64);
-    const sh = darkMQ.matches ? '0,0,0' : '70,52,58';
+    const sh = isDark() ? '0,0,0' : '70,52,58';
     grd.addColorStop(0, 'rgba(' + sh + ',0.3)');
     grd.addColorStop(0.55, 'rgba(' + sh + ',0.12)');
     grd.addColorStop(1, 'rgba(' + sh + ',0)');
@@ -1713,7 +1828,7 @@ try {
   }
 
   const people = [person(-1, PLUM), person(1, SAGE)];
-  darkMQ.addEventListener('change', () => {
+  document.addEventListener('tv-theme', () => {
     tone().forEach((c, i) => { people[i].color = c; people[i].mat.color.setHex(c); });
     if (reduce) frame(performance.now());
   });

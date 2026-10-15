@@ -6,19 +6,23 @@
 <title>Πολιτική απορρήτου | Αικατερίνη Λαζαρίδου</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="./favicon.ico" sizes="32x32">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./fonts/fonts.css">
+<script>
+// Ίδια μέρα/νύχτα με την αρχική σελίδα
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('tv-theme'); } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+})();
+</script>
 <style>
 :root {
   --paper: #FAF9F6; --ink: #2E2629; --ink-2: #574B51; --ink-3: #6F6468;
   --plum: #7A5560; --sage: #4F6F58; --rule: #E2DAD6;
   color-scheme: light dark;
 }
-@media (prefers-color-scheme: dark) {
-  :root { --paper: #1B1719; --ink: #F2ECEA; --ink-2: #D3C8CC; --ink-3: #A99DA2;
-          --plum: #D4A5B1; --sage: #93B99E; --rule: #3A3235; }
-}
+:root[data-theme="dark"] { --paper: #1B1719; --ink: #F2ECEA; --ink-2: #D3C8CC; --ink-3: #A99DA2;
+                           --plum: #D4A5B1; --sage: #93B99E; --rule: #3A3235; color-scheme: dark; }
 * { box-sizing: border-box; }
 body {
   margin: 0; background: var(--paper); color: var(--ink-2);
@@ -46,7 +50,8 @@ a { color: var(--plum); text-underline-offset: .18em; }
 
   <p>Αυτή η σελίδα εξηγεί ποια στοιχεία σας φτάνουν σε μένα ή σε τρίτους όταν
   επισκέπτεστε τον ιστότοπο ή επικοινωνείτε μαζί μου. Ο ιστότοπος <b>δεν έχει φόρμες,
-  δεν χρησιμοποιεί εργαλεία στατιστικών</b> και δεν βάζει δικά του cookies.</p>
+  δεν χρησιμοποιεί εργαλεία στατιστικών και δεν βάζει cookies</b>. Το μόνο που
+  μπορεί να βάλει cookies είναι ο χάρτης της Google, και μόνο αν τον ανοίξετε εσείς.</p>
 
   <h2>Ποια είμαι</h2>
   <p>Υπεύθυνη για τα στοιχεία που μου στέλνετε είναι η Αικατερίνη Λαζαρίδου, ψυχολόγος,
@@ -68,21 +73,25 @@ a { color: var(--plum); text-underline-offset: .18em; }
   σύμφωνα με τη <a href="https://cal.com/privacy" target="_blank" rel="noopener">δική της πολιτική απορρήτου</a>.</p>
 
   <h2>Ο χάρτης</h2>
-  <p>Ο χάρτης στην ενότητα «Επικοινωνία» είναι από το Google Maps. Όταν φορτώνει, η Google
-  μπορεί να λάβει τη διεύθυνση IP σας και να χρησιμοποιήσει cookies, σύμφωνα με την
-  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">πολιτική της Google</a>.</p>
+  <p>Ο χάρτης στην ενότητα «Επικοινωνία» είναι από το Google Maps και <b>φορτώνει μόνο όταν
+  πατήσετε «Εμφάνιση χάρτη»</b>. Από εκείνη τη στιγμή η Google μπορεί να λάβει τη διεύθυνση
+  IP σας και να χρησιμοποιήσει cookies, σύμφωνα με την
+  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">πολιτική της Google</a>.
+  Αν δεν τον ανοίξετε, η Google δεν μαθαίνει τίποτα για την επίσκεψή σας. Το κουμπί
+  «Οδηγίες» ανοίγει το Google Maps σε νέα καρτέλα.</p>
 
-  <h2>Φιλοξενία, γραμματοσειρές και βιβλιοθήκες</h2>
+  <h2>Φιλοξενία</h2>
   <p>Ο ιστότοπος φιλοξενείται στο GitHub Pages, που καταγράφει τεχνικά στοιχεία όπως τη
   διεύθυνση IP για λόγους ασφαλείας
   (<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">πολιτική GitHub</a>).
-  Οι γραμματοσειρές φορτώνουν από το Google Fonts και η τρισδιάστατη εικόνα από το jsDelivr·
-  και οι δύο υπηρεσίες βλέπουν τη διεύθυνση IP σας όταν φορτώνει η σελίδα.</p>
+  Οι γραμματοσειρές και η τρισδιάστατη εικόνα φορτώνουν από τον ίδιο τον ιστότοπο, όχι από
+  τρίτες υπηρεσίες.</p>
 
   <h2>Τι κρατά ο browser σας</h2>
-  <p>Ο ιστότοπος θυμάται στον δικό σας browser δύο μικρές ρυθμίσεις: αν έχετε δει ήδη την
-  εισαγωγή με το λογότυπο και αν έχετε ανοίξει τον ήχο. Αυτά δεν στέλνονται πουθενά και
-  τα σβήνετε όποτε θέλετε από τις ρυθμίσεις του browser.</p>
+  <p>Ο ιστότοπος θυμάται στον δικό σας browser (στο «local storage», όχι σε cookies) μερικές
+  μικρές ρυθμίσεις που διαλέγετε εσείς: μέρα ή νύχτα, ήχος ανοιχτός ή κλειστός, αν θέλετε
+  ο χάρτης να εμφανίζεται πάντα, και αν έχετε δει ήδη την εισαγωγή με το λογότυπο. Δεν
+  στέλνονται πουθενά και τα σβήνετε όποτε θέλετε από τις ρυθμίσεις του browser.</p>
 
   <h2>Τα δικαιώματά σας</h2>
   <p>Μπορείτε να ζητήσετε να δείτε, να διορθώσετε ή να διαγράψω τα στοιχεία σας, γράφοντάς

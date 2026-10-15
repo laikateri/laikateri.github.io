@@ -338,6 +338,30 @@ section { padding: 5.5rem 0; }
   max-width: 15ch; margin: 0 0 1.4rem;
 }
 .intro-sub { font-size: 1.14rem; max-width: 30rem; }
+
+/* Word Rotate: η λέξη στο τέλος της γραμμής αλλάζει ήρεμα, οπότε δεν σπρώχνει τίποτα */
+.rotate-line { white-space: nowrap; }
+.rotate { display: inline-grid; vertical-align: bottom; overflow: hidden; padding: 0 .1em .12em; margin: 0 -.1em -.12em; }
+.rotate > span {
+  grid-area: 1 / 1; font-family: var(--serif); font-style: italic; color: var(--plum);
+  opacity: 0; transform: translateY(70%); filter: blur(4px);
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.2,1), filter .55s ease;
+}
+.rotate > span.on { opacity: 1; transform: none; filter: none; }
+.rotate > span.off { transform: translateY(-70%); }
+
+/* Highlighter: υπογράμμιση με το χέρι, που σχεδιάζεται όταν φανεί η φράση */
+.mark {
+  --stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9 C 40 4 78 12 118 7 S 178 4 197 8' fill='none' stroke='%237A5560' stroke-width='3.2' stroke-linecap='round' opacity='.7'/%3E%3C/svg%3E");
+  background: var(--stroke) left bottom / 0% .42em no-repeat;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  padding-bottom: .12em; color: var(--ink);
+  transition: background-size 1.1s cubic-bezier(.6,.05,.35,1) .2s;
+}
+.mark.drawn { background-size: 100% .42em; }
+[data-theme="dark"] .mark {
+  --stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9 C 40 4 78 12 118 7 S 178 4 197 8' fill='none' stroke='%23D4A5B1' stroke-width='3.2' stroke-linecap='round' opacity='.75'/%3E%3C/svg%3E");
+}
 .intro-actions { margin-top: 2.2rem; }
 
 /* Ο τίτλος ανεβαίνει λέξη-λέξη: η μία στιγμή κίνησης κατά το άνοιγμα */
@@ -742,6 +766,9 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
     animation: none; transform: none; opacity: 1;
   }
   .scroll-cue .cue-line, .scroll-cue .cue-head { animation: none; stroke-dashoffset: 0; opacity: 1; }
+  /* χωρίς κίνηση: όλη η λίστα γραμμένη, αντί για λέξη που αλλάζει */
+  .rotate-line { display: none; }
+  .intro-sub .sr-only { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; }
   *, *::before, *::after { transition-duration: .01ms !important; transition-delay: 0s !important; }
 }
 </style>
@@ -805,8 +832,10 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
     <div class="wrap intro-in">
       <p class="intro-who"><b>Αικατερίνη Λαζαρίδου</b><br>Ψυχολόγος, συστημική ψυχοθεραπεύτρια</p>
       <h1 class="intro-title">Ψυχοθεραπεία που κοιτάζει τις σχέσεις, όχι μόνο το άτομο</h1>
-      <p class="intro-sub">Ενήλικες, παιδιά και έφηβοι, ζευγάρια και οικογένειες.
-      Στη Θεσσαλονίκη ή διαδικτυακά.</p>
+      <p class="intro-sub">Στη Θεσσαλονίκη ή διαδικτυακά,<br>
+        <span class="sr-only">για ενήλικες, παιδιά και εφήβους, ζευγάρια και οικογένειες.</span>
+        <span class="rotate-line" aria-hidden="true">για <span class="rotate"><span class="on">ενήλικες</span><span>παιδιά και εφήβους</span><span>ζευγάρια</span><span>οικογένειες</span></span></span>
+      </p>
       <div class="btn-row intro-actions">
         <a href="#contact" class="btn btn-primary">Κλείστε μια πρώτη συνάντηση</a>
         <a href="#about" class="btn btn-ghost">Γνωρίστε με</a>
@@ -952,8 +981,8 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
         <h2>Τι σημαίνει συστημική ψυχοθεραπεία</h2>
       </div>
       <div class="measure">
-        <p>Η συστημική προσέγγιση ξεκινά από μια απλή παραδοχή: κανείς δεν δυσκολεύεται
-        στο κενό. Ό,τι ζούμε παίρνει νόημα μέσα στις σχέσεις μας — την οικογένεια,
+        <p>Η συστημική προσέγγιση ξεκινά από μια απλή παραδοχή: <span class="mark">κανείς δεν
+        δυσκολεύεται στο κενό</span>. Ό,τι ζούμε παίρνει νόημα μέσα στις σχέσεις μας — την οικογένεια,
         τον σύντροφο, τη δουλειά, την εποχή που μεγαλώσαμε.</p>
 
         <p>Αυτό αλλάζει το ερώτημα. Αντί για «τι φταίει σε εσένα», κοιτάμε πώς λειτουργεί
@@ -1476,6 +1505,33 @@ footer a:hover { color: var(--sage-deep); text-decoration: underline; }
       btn.setAttribute('aria-pressed', 'true');
       run();
     });
+  }
+
+  // ---- Word Rotate: ενήλικες → παιδιά και εφήβους → ζευγάρια → οικογένειες ----
+  var rot = document.querySelector('.rotate');
+  if (rot && !reduce) {
+    var rotWords = rot.children, wi = 0;
+    setInterval(function () {
+      if (document.hidden) return;
+      var cur = rotWords[wi];
+      cur.classList.remove('on'); cur.classList.add('off');
+      setTimeout(function () { cur.classList.remove('off'); }, 600);
+      wi = (wi + 1) % rotWords.length;
+      rotWords[wi].classList.add('on');
+    }, 2600);
+  }
+
+  // ---- Highlighter: η υπογράμμιση σχεδιάζεται μία φορά, όταν φανεί ----
+  var marks = document.querySelectorAll('.mark');
+  if (reduce || !('IntersectionObserver' in window)) {
+    marks.forEach(function (m) { m.classList.add('drawn'); });
+  } else {
+    var markIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('drawn'); markIO.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -25% 0px' });
+    marks.forEach(function (m) { markIO.observe(m); });
   }
 
   // Ο τίτλος σπάει σε λέξεις για να ανέβει μία-μία
